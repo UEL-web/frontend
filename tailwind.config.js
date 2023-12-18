@@ -5,6 +5,7 @@ module.exports = {
   ],
   theme: {
     colors: {
+      ... require('tailwindcss/colors'),
       primary: '#000000',
       secondary: '#D743FB',
     }

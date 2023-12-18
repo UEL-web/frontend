@@ -1,7 +1,7 @@
 
 function HomePage() {
   return (
-    <div className="HomePage bg-red-400">
+    <div className="container outline m-auto">
       <h1>Home Page</h1>
     </div>
   );
