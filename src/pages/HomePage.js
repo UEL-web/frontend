@@ -1,8 +1,11 @@
+import BANNER from "../constants/banners";
 
 function HomePage() {
   return (
-    <div className="container outline m-auto">
-      <h1>Home Page</h1>
+    <div className="container m-auto">
+      <section className="h-auto outline">
+          <img src={BANNER.HOME}/>
+      </section>
     </div>
   );
 }

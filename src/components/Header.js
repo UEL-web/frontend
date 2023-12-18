@@ -53,10 +53,10 @@ function Header() {
                   </nav>
               </div>
 
-              <div className='col-span-2 flex items-center gap-5'>
+              <div className='col-span-2 flex items-center justify-end gap-5'>
                   <Cart />
                   {
-                        !user ? (
+                        user ? (
                             <nav className='items-center w-fit'>
                                 <div className='bg-secondary'>
                                     <NavButton href='/login/'>
@@ -141,10 +141,11 @@ const MenuButton = styled(Link)`
 
 const NavButton = ({ href, children, ...otherProps }) => {
     const location = useLocation()
+    console.log(location.pathname.split('/')[1])
     return (
         <MenuButton
             to={href}
-            className={classnames({ active: href.replace(/\//g, '') === location.pathname.split('/')[1] })}
+            className={classnames({ active: href.replace(/\//g, '') === location.pathname.split('/')[1] && location.pathname.split('/')[1] !== 'login' })}
             {...otherProps}
         >
             {children}
