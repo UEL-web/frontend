@@ -1,0 +1,97 @@
+import {useContext} from "react";
+import AuthContext from "../contexts/AuthContext";
+
+export const useAuth = () => useContext(AuthContext)
+
+export const getUserData = () => {
+    let user;
+    // Get user data from local storage
+    if (localStorage.getItem('user') !== null) {
+        user = JSON.parse(localStorage.getItem('user'))
+    }
+
+    // Check if user is logged in
+    if (Object.keys(user).length === 0) {
+        return null
+    }
+
+    // Check if user has access token
+    if (user.accessToken === '') {
+        return null
+    }
+
+    // Check if Storage is supported
+    if (typeof Storage === 'undefined') {
+        return null
+    }
+
+    return user
+}
+
+export const setUserData = (user) => {
+    if(!user || typeof user !== 'object') {
+        return Error('User data must be an object')
+    }
+
+    if (Object.keys(user).length === 0) {
+        return Error('User is not logged in')
+    }
+
+    if (user.accessToken === '') {
+        return Error('User is not logged in')
+    }
+
+    if (typeof Storage === 'undefined') {
+        return Error('Your browser is not supported')
+    }
+
+    localStorage.setItem('user', JSON.stringify(user))
+
+}
+
+export const removeUserData = () => {
+    if (typeof Storage === 'undefined') {
+        return
+    }
+
+    localStorage.removeItem('user')
+}
+
+export const getAccessToken = () => {
+    const user = getUserData()
+
+    if (user) {
+        return user.accessToken
+    }
+
+    return null
+}
+
+export const getRefreshToken = () => {
+    const user = getUserData()
+
+    if (user) {
+        return user.refreshToken
+    }
+
+    return null
+}
+
+export const updateAccessToken = (accessToken) => {
+    const user = getUserData()
+
+    if (user) {
+        user.accessToken = accessToken
+        setUserData(user)
+    }
+}
+
+export const isAuthentificated = () => {
+    const user = getUserData()
+
+    if (user && user.accessToken !== '') {
+        return true
+    }
+
+    return false
+}
