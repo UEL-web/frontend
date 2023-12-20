@@ -141,7 +141,6 @@ const MenuButton = styled(Link)`
 
 const NavButton = ({ href, children, ...otherProps }) => {
     const location = useLocation()
-    console.log(location.pathname.split('/')[1])
     return (
         <MenuButton
             to={href}

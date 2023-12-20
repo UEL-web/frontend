@@ -10,6 +10,7 @@ import TeacherPage from "../pages/TeacherPage";
 import DocumentPage from "../pages/DocumentPage";
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
+import CourseDetail from "../pages/CourseDetail";
 
 
 export default function AppRouter() {
@@ -35,6 +36,14 @@ export default function AppRouter() {
                     <Suspense fallback={<Loading />}>
                         <MainLayout>
                             <CoursePage />
+                        </MainLayout>
+                    </Suspense>
+                } />
+
+                <Route path={PATH.COURSE + "/:id"} element={
+                    <Suspense fallback={<Loading />}>
+                        <MainLayout>
+                            <CourseDetail />
                         </MainLayout>
                     </Suspense>
                 } />
