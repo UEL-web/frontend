@@ -20,3 +20,8 @@ export const getCourseDetail = async (slug) => {
     const response = await axios.get(COURSE_API + `${slug}`)
     return response.data
 }
+
+export const loginApi = async (data) => {
+    const response = await axios.post('/login', data)
+    return response.data
+}

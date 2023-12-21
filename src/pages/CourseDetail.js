@@ -10,11 +10,21 @@ import {getCourseDetail} from "../apis/api";
 import {toast} from "react-toastify";
 import {toastConfig} from "../config/toastConfig";
 import parse from 'html-react-parser';
+import {useDispatch} from "react-redux";
+import {addToCart} from "../redux-action/cartAction";
 
 function CourseDetail() {
     const [loading, setLoading] = useState(false)
     const params = useParams()
     const [course, setCourse] = useState(null)
+
+    const dispath = useDispatch();
+
+    const handleAddToCart = () => {
+        if (!course) return
+        dispath(addToCart(course))
+    }
+
 
     useEffect(() => {
         setLoading(true)
@@ -22,7 +32,6 @@ function CourseDetail() {
             setLoading(false)
             if (!res.success) return toast.error(res.message, toastConfig)
             setCourse(res.data)
-            console.log(res.data)
         })
     }, [params.id])
 
@@ -99,7 +108,7 @@ function CourseDetail() {
                                                 <p className='text-base '>{ course?.price }</p>
                                             </div>
 
-                                            <button htmltype='submit' className='text-white py-1 px-3 m-auto mt-3 flex justify-center items-center rounded bg-gradient-to-r from-[#5E54F3] to-[#F74986]'>
+                                            <button onClick={handleAddToCart} htmltype='submit' className='text-white py-1 px-3 m-auto mt-3 flex justify-center items-center rounded bg-gradient-to-r from-[#5E54F3] to-[#F74986]'>
                                                 <p className='text-lg font-medium'>Thêm vào giỏ</p>
                                                 <MdKeyboardArrowRight size={30} />
                                             </button>

@@ -13,6 +13,8 @@ import {toast} from "react-toastify";
 import Loading from "../components/Loading";
 import {PATH} from "../constants/paths";
 import {toastConfig} from "../config/toastConfig";
+import {useDispatch} from "react-redux";
+import {addToCart} from "../redux-action/cartAction";
 
 function CoursePage() {
     const [courses, setCourses] = useState(null)
@@ -72,7 +74,7 @@ function CoursePage() {
                 >
                     {
                         category ? category.map((cate) => (
-                                <SwiperSlide key={cate.slug} className='bg-gradient-to-r from-[#F74986] to-white rounded-full p-[1.5px]'>
+                                <SwiperSlide key={cate.name} className='bg-gradient-to-r from-[#F74986] to-white rounded-full p-[1.5px]'>
                                     <Link to='/' className='block bg-black rounded-full'>
                                         <p className='truncate py-3 px-4 text-center'>
                                             {cate?.name}
@@ -107,8 +109,14 @@ function CoursePage() {
 export default CoursePage;
 
 function CourseCard({course}) {
+    const dispath = useDispatch();
+
+    const handleAddToCart = () => {
+        dispath(addToCart(course))
+    }
+
     return (
-        <Link to={PATH.COURSE + "/" + course.slug} className="col-span-3 grid grid-rows-5 h-[400px] border border-gray-800 cursor-pointer">
+        <div className="col-span-3 grid grid-rows-5 h-[400px] border border-gray-800 cursor-pointer">
             <div className="row-span-3 flex items-center">
                 {
                     course?.image ? <img src={course?.image} className='w-full h-full object-cover' /> :
@@ -117,7 +125,7 @@ function CourseCard({course}) {
             </div>
 
             <div className="row-span-2 px-2 flex flex-col items-start py-2 transition   ">
-                <p className='line-clamp-2 font-semibold hover:text-secondary leading-5'> {course?.name} </p>
+                <Link to={PATH.COURSE + "/" + course.slug} className='line-clamp-2 font-semibold hover:text-secondary leading-5'> {course?.name} </Link>
                 <div className='pt-2 pb-1 flex gap-4'>
                     {
                         course.time &&
@@ -139,8 +147,8 @@ function CourseCard({course}) {
                 {
                     course.price && <p className='font-medium'> { course.price } </p>
                 }
-                <button className="mt-auto border px-3 mx-auto py-1 hover:opacity-80">Thêm vào giỏ hàng</button>
+                <button onClick={handleAddToCart} className="mt-auto border px-3 mx-auto py-1 hover:opacity-80">Thêm vào giỏ hàng</button>
             </div>
-        </Link>
+        </div>
     )
 }

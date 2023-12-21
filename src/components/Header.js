@@ -5,15 +5,19 @@ import Logo from "./Logo";
 import {LABEL, PATH} from "../constants/paths";
 import classnames from "classnames";
 import Cart from "./Cart";
-import {useState, Fragment} from "react";
+import {useState, Fragment, useEffect} from "react";
 import {getUserData} from "../utils/auth";
 import {PiUserCircleLight} from "react-icons/pi";
 import {AiOutlineExport, AiOutlineSetting} from "react-icons/ai";
 import {IoIosArrowDown, IoIosLogOut} from "react-icons/io";
 import {Menu, Transition} from "@headlessui/react";
+import { useDispatch, useSelector } from 'react-redux';
+import cartReducer from "../redux/cartReducer";
 
 function Header() {
     const [user, setUser] = useState(getUserData())
+    const cart = useSelector(state => state.cartReducer)
+
   return (
     <HeaderSection>
       <div className='container mx-auto max-w-[1280px]'>
@@ -54,22 +58,16 @@ function Header() {
               </div>
 
               <div className='col-span-2 flex items-center justify-end gap-5'>
-                  <Cart />
+                  <Link to={PATH.CART}>
+                      <Cart numItemsInCart={cart.length} />
+                  </Link>
                   {
-                        user ? (
-                            <nav className='items-center w-fit'>
-                                <div className='bg-secondary'>
-                                    <NavButton href='/login/'>
-                                        {LABEL.LOGIN}
-                                    </NavButton>
-                                </div>
-                            </nav>
-                        ) : (
-                            <Menu as='div' className='relative inline-block text-left w-full text-white'>
+                        user ?  (
+                            <Menu as='div' className='relative inline-block text-left w-fit text-white'>
                                 <div className='w-full h-full flex items-center'>
                                     <Menu.Button className='w-full flex justify-center items-center'>
                                         <PiUserCircleLight className='w-7 h-7 mx-1' />
-                                        <p className='max-w-[70%] mr-1 overflow-hidden text-base overflow-ellipsis h-full text-start flex items-center'>Bao Minh</p>
+                                        <p className='max-w-[70%] mr-1 overflow-hidden text-base overflow-ellipsis h-full text-start flex items-center'>{user.username}</p>
                                         <IoIosArrowDown className='w-4 h-4' />
                                     </Menu.Button>
                                 </div>
@@ -100,6 +98,14 @@ function Header() {
                                     </Menu.Items>
                                 </Transition>
                             </Menu>
+                        ) : (
+                            <nav className='items-center w-fit'>
+                                <div className='bg-secondary'>
+                                    <NavButton href='/login/'>
+                                        {LABEL.LOGIN}
+                                    </NavButton>
+                                </div>
+                            </nav>
                         )
                   }
               </div>

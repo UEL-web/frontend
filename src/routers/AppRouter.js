@@ -11,6 +11,8 @@ import DocumentPage from "../pages/DocumentPage";
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
 import CourseDetail from "../pages/CourseDetail";
+import CartPage from "../pages/CartPage";
+import HeaderLayout from "../layouts/HeaderLayout";
 
 
 export default function AppRouter() {
@@ -66,11 +68,19 @@ export default function AppRouter() {
 
                 <Route path={PATH.LOGIN} element={
                     <Suspense fallback={<Loading />}>
-                        <MainLayout>
+                        <HeaderLayout>
                             <LoginPage />
-                        </MainLayout>
+                        </HeaderLayout>
                     </Suspense>
                 } />
+
+            <Route path={PATH.CART} element={
+                <Suspense fallback={<Loading />}>
+                    <MainLayout>
+                        <CartPage />
+                    </MainLayout>
+                </Suspense>
+            } />
 
                 <Route path={PATH.REGISTER} element={
                     <Suspense fallback={<Loading />}>

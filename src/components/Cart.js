@@ -1,6 +1,6 @@
 import { IoCartOutline } from "react-icons/io5";
 
-function Cart({numItemsInCart = 6}) {
+function Cart({numItemsInCart = 0}) {
   return (
       <div className="h-fit w-fit flex justify-end">
           <div className="relative py-2">
