@@ -1,5 +1,7 @@
 import {useContext} from "react";
 import AuthContext from "../contexts/AuthContext";
+import axios from "axios";
+import {TOKEN_API} from "../constants/api";
 
 export const useAuth = () => useContext(AuthContext)
 
@@ -10,10 +12,14 @@ export const getUserData = () => {
         user = JSON.parse(localStorage.getItem('user'))
     }
 
+    if (!user) return null
+
     // Check if user is logged in
     if (Object.keys(user).length === 0) {
         return null
     }
+
+
 
     // Check if user has access token
     if (user.accessToken === '') {
@@ -94,4 +100,23 @@ export const isAuthentificated = () => {
     }
 
     return false
+}
+
+export const getNewAccessToken = async () => {
+    const refreshToken = getRefreshToken()
+
+    if (!refreshToken) {
+        return null
+    }
+
+    const response = await axios.post(TOKEN_API + 'refresh/', {
+        refresh: refreshToken
+    })
+
+    if (response.status !== 200) {
+        return null
+    }
+
+    updateAccessToken(response.data.access)
+    return response.data.access
 }

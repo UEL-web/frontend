@@ -6,6 +6,7 @@ export const PATH = {
     COURSE: '/course',
     DOCUMENT: '/document',
     TEACHER: '/teacher',
+    CART: '/cart',
 }
 
 export const LABEL = {
