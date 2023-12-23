@@ -6,7 +6,9 @@ const AuthContext = createContext({
         firstName: '',
         lastName: '',
         accessToken: '',
-        refreshToken: ''
+        refreshToken: '',
+        description: '',
+        phoneNumber: '',
     },
     login: () => {},
     logout: () => {},

@@ -6,19 +6,26 @@ import {LABEL, PATH} from "../constants/paths";
 import classnames from "classnames";
 import Cart from "./Cart";
 import {useState, Fragment, useEffect} from "react";
-import {getUserData} from "../utils/auth";
+import {getUserData, useAuth} from "../utils/auth";
 import {PiUserCircleLight} from "react-icons/pi";
 import {AiOutlineExport, AiOutlineSetting} from "react-icons/ai";
 import {IoIosArrowDown, IoIosLogOut} from "react-icons/io";
 import {Menu, Transition} from "@headlessui/react";
 import { useDispatch, useSelector } from 'react-redux';
 import cartReducer from "../redux/cartReducer";
+import { IoSchoolOutline } from "react-icons/io5";
 
 function Header() {
     const [user, setUser] = useState(getUserData())
     const cart = useSelector(state => state.cartReducer)
+    const  { logout }  = useAuth();
 
-  return (
+    const handleLogout = () => {
+        logout();
+        setUser(null);
+    }
+
+    return (
     <HeaderSection>
       <div className='container mx-auto max-w-[1280px]'>
           <div className='grid grid-cols-12 gap-2'>
@@ -84,10 +91,39 @@ function Header() {
                                         <div className='absolute p-2 right-0 w-56 mt-1 origin-top-right bg-white divide-y divide-gray-100 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'>
                                             <Menu.Item>
                                                 {({ active }) => (
-                                                    <button
+                                                    <Link
+                                                        to={PATH.PROFILE}
                                                         className={`${
                                                             active ? 'bg-gray-900' : 'text-gray-900'
                                                         } group flex items-center w-full px-3 py-2 text-sm`}
+                                                    >
+                                                        <PiUserCircleLight className='w-5 h-5' />
+                                                        <span className='ml-2'>Thông tin cá nhân </span>
+                                                    </Link>
+                                                )}
+                                            </Menu.Item>
+
+                                            <Menu.Item>
+                                                {({ active }) => (
+                                                    <Link
+                                                        to={PATH.MY_COURSE_LEARNING}
+                                                        className={`${
+                                                            active ? 'bg-gray-900' : 'text-gray-900'
+                                                        } group flex items-center w-full px-3 py-2 text-sm`}
+                                                    >
+                                                        <IoSchoolOutline className='w-5 h-5' />
+                                                        <span className='ml-2'> Quá trình học </span>
+                                                    </Link>
+                                                )}
+                                            </Menu.Item>
+
+                                            <Menu.Item>
+                                                {({ active }) => (
+                                                    <button
+                                                        onClick={handleLogout}
+                                                        className={`${
+                                                            active ? 'bg-gray-900' : 'text-gray-900'
+                                                        } group flex items-center w-full px-3 py-2 text-sm hover:bg-red-500`}
                                                     >
                                                         <IoIosLogOut className='w-5 h-5' />
                                                         <span className='ml-2'>Đăng xuất</span>

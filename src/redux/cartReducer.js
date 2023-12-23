@@ -27,6 +27,9 @@ const cartReducer = (cart = [], action) => {
     case 'DELETE_FROM_CART':
         return cart.filter((item) => item.id !== action.payload.id)
 
+    case 'CLEAR_CART':
+        return [];
+
     default:
       return cart;
   }

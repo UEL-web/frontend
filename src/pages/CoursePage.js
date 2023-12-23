@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { CiClock2 } from "react-icons/ci";
 import { IoPersonOutline } from "react-icons/io5";
 import 'swiper/css';
-import {Link} from "react-router-dom";
+import {Link, useLocation, useParams} from "react-router-dom";
 import Pagination from "../components/Pagination";
 import ConsultationForm from "../components/ConsultationForm";
 import {useEffect, useState} from "react";
@@ -15,21 +15,29 @@ import {PATH} from "../constants/paths";
 import {toastConfig} from "../config/toastConfig";
 import {useDispatch} from "react-redux";
 import {addToCart} from "../redux-action/cartAction";
+import {getQueryVariable} from "../utils/getQuery";
+import classnames from "classnames";
 
 function CoursePage() {
     const [courses, setCourses] = useState(null)
     const [currentPage, setCurrentPage] = useState(1)
     const [totalPage, setTotalPage] = useState(1)
     const [category, setCategory] = useState(null)
+    const params = useParams()
+    const location = useLocation()
+
 
     useEffect(() => {
-        getCourses().then((res) => {
+        setCourses(null)
+        getCourses(null, getQueryVariable('category')).then((res) => {
             if (!res.success) return toast.error(res.message, toastConfig)
             setCourses(res.data)
             setCurrentPage(res.current_page)
             setTotalPage(res.total_page)
         })
+    }, [params])
 
+    useEffect(() => {
         getCourseCategory().then((res) => {
             if (!res.success) return toast.error(res.message, toastConfig)
             setCategory(res.data)
@@ -75,8 +83,8 @@ function CoursePage() {
                     {
                         category ? category.map((cate) => (
                                 <SwiperSlide key={cate.name} className='bg-gradient-to-r from-[#F74986] to-white rounded-full p-[1.5px]'>
-                                    <Link to='/' className='block bg-black rounded-full'>
-                                        <p className='truncate py-3 px-4 text-center'>
+                                    <Link to={!getQueryVariable('category') || getQueryVariable('category') !== cate.slug ? '?category=' + cate.slug : PATH.COURSE} className='block bg-black rounded-full'>
+                                        <p className={classnames("truncate py-3 px-4 text-center", {"text-secondary underline": getQueryVariable('category') === cate.slug})}>
                                             {cate?.name}
                                         </p>
                                     </Link>
@@ -91,6 +99,13 @@ function CoursePage() {
 
             <section className="h-auto pt-5">
                 <div className="grid grid-cols-12 gap-5">
+                    {
+                        courses && courses.length === 0
+                        &&
+                        <p className='text-2xl font-semibold text-center col-span-12 text-white'>
+                            Không có khóa học nào
+                        </p>
+                    }
                     {
                         courses ? courses.map((course) => (
                             <CourseCard key={course.id} course={course} />
@@ -112,6 +127,7 @@ function CourseCard({course}) {
     const dispath = useDispatch();
 
     const handleAddToCart = () => {
+        toast.success('Thêm vào giỏ hàng thành công', toastConfig)
         dispath(addToCart(course))
     }
 
@@ -119,7 +135,7 @@ function CourseCard({course}) {
         <div className="col-span-3 grid grid-rows-5 h-[400px] border border-gray-800 cursor-pointer">
             <div className="row-span-3 flex items-center">
                 {
-                    course?.image ? <img src={course?.image} className='w-full h-full object-cover' /> :
+                    course?.course_img ? <img src={course?.course_img} className='w-full h-full object-cover' /> :
                         <img src='/default_img.png' className='w-full h-full object-cover' />
                 }
             </div>

@@ -6,6 +6,7 @@ import {createConsultationForm} from "../apis/api";
 import {toast} from "react-toastify";
 import Loading from "./Loading";
 import {toastConfig} from "../config/toastConfig";
+import { Link, Element } from 'react-scroll';
 
 function ConsultationForm() {
     const [form] = Form.useForm()
@@ -23,7 +24,8 @@ function ConsultationForm() {
     }
 
   return (
-    <div className='w-full outline p-7'>
+      <Element name="contact" className="element">
+        <div className='w-full outline p-7'>
         <p className='text-3xl text-center font-bold uppercase'> Liên hệ với chúng tôi </p>
         <Form
             form={form}
@@ -101,6 +103,7 @@ function ConsultationForm() {
             </Form.Item>
         </Form>
     </div>
+      </Element>
   );
 }
 

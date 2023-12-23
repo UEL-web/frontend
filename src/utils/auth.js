@@ -19,8 +19,6 @@ export const getUserData = () => {
         return null
     }
 
-
-
     // Check if user has access token
     if (user.accessToken === '') {
         return null
@@ -52,7 +50,6 @@ export const setUserData = (user) => {
     }
 
     localStorage.setItem('user', JSON.stringify(user))
-
 }
 
 export const removeUserData = () => {
@@ -109,14 +106,17 @@ export const getNewAccessToken = async () => {
         return null
     }
 
-    const response = await axios.post(TOKEN_API + 'refresh/', {
-        refresh: refreshToken
-    })
+    try {
+        const response = await axios.post(TOKEN_API + 'refresh/', {
+            refresh: refreshToken
+        })
+        if (response.status !== 200) {
+            return null
+        }
 
-    if (response.status !== 200) {
-        return null
+        updateAccessToken(response.data.access)
+        return response.data
+    } catch (err) {
+        console.log(err)
     }
-
-    updateAccessToken(response.data.access)
-    return response.data.access
 }

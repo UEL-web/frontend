@@ -22,6 +22,7 @@ function CourseDetail() {
 
     const handleAddToCart = () => {
         if (!course) return
+        toast.success('Thêm vào giỏ hàng thành công', toastConfig)
         dispath(addToCart(course))
     }
 
@@ -63,7 +64,7 @@ function CourseDetail() {
                                 <div className='flex flex-col gap-7'>
                                     {
                                         course?.learning_program?.map((item, index) => (
-                                            <p className="py-3 px-4 w-full rounded bg-gradient-to-r from-[#F74986] to-[#471CF5]">{item}</p>
+                                            <p key={item} className="py-3 px-4 w-full rounded bg-gradient-to-r from-[#F74986] to-[#471CF5]">{item}</p>
                                         ))
                                     }
                                 </div>

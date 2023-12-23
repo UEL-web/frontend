@@ -24,9 +24,9 @@ function LoginPage() {
 
     const onFinish = (values) => {
         setLoading(true);
-        // if (loading) {
-        //     return;
-        // }
+        if (loading) {
+            return;
+        }
         login(values.username, values.password).then(
             (result) => {
                 if (!result) {
@@ -83,8 +83,8 @@ function LoginPage() {
                   <div className='w-full flex items-center pb-5 justify-between'>
                       <div className='border-t border-black h-0 w-[40%]' />
                       <span className='col-span-2 text-base font-semibold'>
-                HOẶC
-              </span>
+                        HOẶC
+                      </span>
                       <div className='border-t border-black h-0 w-[40%]' />
                   </div>
 

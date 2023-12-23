@@ -7,6 +7,10 @@ export const PATH = {
     DOCUMENT: '/document',
     TEACHER: '/teacher',
     CART: '/cart',
+    PROFILE: '/profile',
+    PAYMENT_SUCCESS: '/payment-result',
+    MY_COURSE: '/my-course',
+    MY_COURSE_LEARNING: '/my-course/learning',
 }
 
 export const LABEL = {

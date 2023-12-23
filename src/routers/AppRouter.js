@@ -13,6 +13,12 @@ import RegisterPage from "../pages/RegisterPage";
 import CourseDetail from "../pages/CourseDetail";
 import CartPage from "../pages/CartPage";
 import HeaderLayout from "../layouts/HeaderLayout";
+import ProfilePage from "../pages/ProfilePage";
+import PaymentResult from "../pages/PaymentResult";
+import MyCoursesPage from "../pages/MyCoursesPage";
+import MyCourseTabTage from "../components/MyCourseTabTage";
+import DocumentDetailPage from "../pages/DocumentDetailPage";
+import BlogDetailPage from "../pages/BlogDetailPage";
 
 
 export default function AppRouter() {
@@ -42,10 +48,54 @@ export default function AppRouter() {
                     </Suspense>
                 } />
 
+                <Route path={PATH.PROFILE} element={
+                    <Suspense fallback={<Loading />}>
+                        <HeaderLayout>
+                            <ProfilePage />
+                        </HeaderLayout>
+                    </Suspense>
+                } />
+
+                <Route path={PATH.PAYMENT_SUCCESS} element={
+                    <Suspense fallback={<Loading />}>
+                        <HeaderLayout>
+                            <PaymentResult />
+                        </HeaderLayout>
+                    </Suspense>
+                } />
+
+                <Route path={PATH.MY_COURSE + "/learning/"} element={
+                    <Suspense fallback={<Loading />}>
+                        <HeaderLayout>
+                           <>
+                               <MyCourseTabTage />
+                               <MyCoursesPage />
+                           </>
+                        </HeaderLayout>
+                    </Suspense>
+                } />
+
                 <Route path={PATH.COURSE + "/:id"} element={
                     <Suspense fallback={<Loading />}>
                         <MainLayout>
                             <CourseDetail />
+                        </MainLayout>
+                    </Suspense>
+                } />
+
+                <Route path={PATH.BLOG + "/:id"} element={
+                    <Suspense fallback={<Loading />}>
+                        <MainLayout>
+                            <BlogDetailPage />
+                        </MainLayout>
+                    </Suspense>
+                } />
+
+
+            <Route path={PATH.DOCUMENT + "/:id"} element={
+                    <Suspense fallback={<Loading />}>
+                        <MainLayout>
+                            <DocumentDetailPage />
                         </MainLayout>
                     </Suspense>
                 } />

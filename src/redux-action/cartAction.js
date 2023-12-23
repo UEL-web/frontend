@@ -20,4 +20,10 @@ const deleteFromCart = (item) => {
     };
 }
 
-export { addToCart, removeFromCart, deleteFromCart };
+const clearCart = () => {
+    return {
+        type: 'CLEAR_CART',
+    };
+}
+
+export { addToCart, removeFromCart, deleteFromCart, clearCart };
