@@ -13,6 +13,9 @@ import CardTech from "../components/home/CardTech";
 import {FaAngleLeft, FaAngleRight} from "react-icons/fa";
 import CardQuestion from "../components/home/CardQuestion";
 
+import { motion } from 'framer-motion';
+import {fadeIn, staggerContainer, textVariant2} from "../utils/motion";
+
 export default function HomePageNew () {
 
     const sliderRef = useRef(null);
@@ -30,8 +33,17 @@ export default function HomePageNew () {
     return (
         <main className='container m-auto text-white h-auto mt-5'>
             <section className='h-auto lg:px-20 lg:py-20 p-2'>
-                <div className='grid grid-cols-12 gap-5'>
-                    <div className='lg:col-span-6 col-span-12 pt-10 lg:order-1 order-last'>
+                <motion.div
+                    variants={staggerContainer}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: false, amount: 0.25 }}
+                    className='grid grid-cols-12 gap-5'
+                >
+                    <motion.div
+                        variants={fadeIn('right', 'tween', 0.2, 0.5)}
+                        className='lg:col-span-6 col-span-12 pt-10 lg:order-1 order-last'
+                    >
                         <div className='w-full h-full flex items-end'>
                             <div>
                                 <h1 className='lg:text-6xl text-5xl font-bold mb-4'>
@@ -55,36 +67,59 @@ export default function HomePageNew () {
                                 </form>
                             </div>
                         </div>
-                    </div>
-                    <div className='lg:col-span-6 col-span-12 pt-3 flex justify-center items-center order-2'>
+                    </motion.div>
+                    <motion.div
+                        variants={fadeIn('left', 'tween', 0.2, 0.5)}
+                        className='lg:col-span-6 col-span-12 pt-3 flex justify-center items-center order-2'
+                    >
                         <img
                             src="/banner1.png"
                             alt=""
                         />
-                    </div>
-                </div>
+                    </motion.div>
+                </motion.div>
             </section>
 
-            <section className='h-auto lg:p-20 p-2'>
-                <h2 className='lg:text-6xl text-5xl font-bold lg:pb-9 mb-9 text-center'>
+            <motion.section
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: false, amount: 0.25 }}
+                className='h-auto lg:p-20 p-2'
+            >
+                <motion.h2
+                    variants={textVariant2}
+                    initial="hidden"
+                    whileInView="show"
+                    className='lg:text-6xl text-5xl font-bold lg:pb-9 mb-9 text-center'
+                >
                     Thành tựu ấn tượng
-                </h2>
+                </motion.h2>
 
                 <div className='container my-10 w-full h-auto'>
                     <div className='grid grid-cols-4 gap-10 lg:px-0 px-20'>
                         {
                             archiData.map((item, index) => (
-                                <CardArchi key={index} title={item.title} content={item.content} />
+                                <CardArchi key={index} index={index} title={item.title} content={item.content} />
                             ))
                         }
                     </div>
                 </div>
-            </section>
+            </motion.section>
 
             <section className='h-auto px-20 py-20'>
-                <div className='grid grid-cols-2 gap-10'>
+                <motion.div
+                    variants={staggerContainer}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: false, amount: 0.25 }}
+                    className='grid grid-cols-2 gap-10'
+                >
                     <div className='col-span-1 w-full h-full flex flex-col justify-around items-center'>
-                        <div className='grid grid-cols-2 gap-5'>
+                        <motion.div
+                            variants={fadeIn('left', 'tween', 0.2, 0.5)}
+                            className='grid grid-cols-2 gap-5'
+                        >
                             <div className='col-span-1 flex flex-col justify-around items-center gap-5'>
                                 <div className='p-4 rounded-[24px] border-[#F74986] border-[1px]'>
                                     <p className='mb-1 text-[40px] font-bold'>
@@ -133,9 +168,12 @@ export default function HomePageNew () {
                                     </p>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
                     </div>
-                    <div className='col-span-1 w-full h-full'>
+                    <motion.div
+                        variants={fadeIn('right', 'tween', 0.2, 0.5)}
+                        className='col-span-1 w-full h-full'
+                    >
                         <div className='w-full h-auto flex justify-center items-center gap-2 font-bold bg-gradient-to-b from-[#F74986] to-[#fff] text-transparent bg-clip-text'>
                             <span className='text-[85px]'>
                                 5
@@ -155,19 +193,31 @@ export default function HomePageNew () {
                                 </span>
                             </button>
                         </div>
-                    </div>
-                </div>
+                    </motion.div>
+                </motion.div>
             </section>
 
             <section className='h-auto px-20 py-20'>
-                <div className='grid grid-cols-3 gap-10'>
-                    <div className='col-span-1'>
+                <motion.div
+                    variants={staggerContainer}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: false, amount: 0.25 }}
+                    className='grid grid-cols-3 gap-10'
+                >
+                    <motion.div
+                        variants={fadeIn('left', 'tween', 0.2, 0.5)}
+                        className='col-span-1'
+                    >
                         <p className='text-[70px] font-bold'>
                             Cảm nhận học viên
                         </p>
-                    </div>
+                    </motion.div>
 
-                    <div className='col-span-2'>
+                    <motion.div
+                        variants={fadeIn('right', 'tween', 0.2, 0.5)}
+                        className='col-span-2'
+                    >
                         <div className='w-full h-auto bg-white rounded-3xl text-black p-3 '>
                             <Swiper
                                 spaceBetween={50}
@@ -203,60 +253,76 @@ export default function HomePageNew () {
                                 </SwiperSlide>
                             </Swiper>
                         </div>
+                    </motion.div>
+                </motion.div>
+            </section>
+            <motion.section
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: false, amount: 0.25 }}
+                className='w-full h-auto'
+            >
+                <motion.div
+                    variants={fadeIn('up', 'tween', 0.3, 0.5)}
+                    className='my-20 text-white bg-gradient-to-r from-[#5E54F3] from-17% to-[#D743FB] to-103% rounded-3xl'
+                >
+                    <motion.p
+                        variants={fadeIn('down', 'tween', 0.8, 0.2)}
+                        className='text-center text-[60px] font-bold'
+                    >
+                        Công nghệ sử dụng
+                    </motion.p>
+                    <div className='px-[200px] py-10 relative'>
+                        <Swiper
+                            ref={sliderRef}
+                            slidesPerView={4}
+                            spaceBetween={0}
+                            // pagination={{
+                            //     clickable: true,
+                            // }}
+                            // modules={[Pagination]}
+                            className="mySwiper"
+                        >
+                            {imgTechList.map((tech, index) => (
+                                <SwiperSlide key={index}>
+                                    <CardTech
+                                        index={index}
+                                        url={tech}
+                                    />
+                                </SwiperSlide>
+                            ))}
+                            {/*{imgTechList.map((tech, index) => (*/}
+                            {/*    <SwiperSlide key={index}>*/}
+                            {/*        <CardTech*/}
+                            {/*            url={tech}*/}
+                            {/*        />*/}
+                            {/*    </SwiperSlide>*/}
+                            {/*))}*/}
+                        </Swiper>
+                        <motion.button
+                            variants={fadeIn('center', 'tween', 0.8, 0.2)}
+                            type='button'
+                            className='absolute top-1/2 left-20 transform -translate-y-1/2 border-none outline-none bg-white rounded-full w-[50px] h-[50px] flex justify-center items-center text-black text-3xl text-[#5E54F3]'
+                            onClick={handlePrev}
+                        >
+                            <FaAngleLeft
+                                color={'#5E54F3'}
+                            />
+                        </motion.button>
+                        <motion.button
+                            variants={fadeIn('center', 'tween', 0.8, 0.2)}
+                            type='button'
+                            className='absolute top-1/2 right-20 transform -translate-y-1/2 border-none outline-none bg-white rounded-full w-[50px] h-[50px] flex justify-center items-center text-black text-3xl'
+                            onClick={handleNext}
+                        >
+                            <FaAngleRight
+                                color={'#5E54F3'}
+                            />
+                        </motion.button>
                     </div>
-                </div>
-            </section>
-
-            <section className='my-20 text-white bg-gradient-to-r from-[#5E54F3] from-17% to-[#D743FB] to-103% rounded-3xl'>
-                <p className='text-center text-[60px] font-bold'>
-                    Công nghệ sử dụng
-                </p>
-                <div className='px-[200px] py-10 relative'>
-                    <Swiper
-                        ref={sliderRef}
-                        slidesPerView={3}
-                        spaceBetween={0}
-                        // pagination={{
-                        //     clickable: true,
-                        // }}
-                        // modules={[Pagination]}
-                        className="mySwiper"
-                    >
-                        {imgTechList.map((tech, index) => (
-                            <SwiperSlide key={index}>
-                                <CardTech
-                                    url={tech}
-                                />
-                            </SwiperSlide>
-                        ))}
-                        {imgTechList.map((tech, index) => (
-                            <SwiperSlide key={index}>
-                                <CardTech
-                                    url={tech}
-                                />
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
-                    <button
-                        type='button'
-                        className='absolute top-1/2 left-20 transform -translate-y-1/2 border-none outline-none bg-white rounded-full w-[50px] h-[50px] flex justify-center items-center text-black text-3xl text-[#5E54F3]'
-                        onClick={handlePrev}
-                    >
-                        <FaAngleLeft
-                            color={'#5E54F3'}
-                        />
-                    </button>
-                    <button
-                        type='button'
-                        className='absolute top-1/2 right-20 transform -translate-y-1/2 border-none outline-none bg-white rounded-full w-[50px] h-[50px] flex justify-center items-center text-black text-3xl'
-                        onClick={handleNext}
-                    >
-                        <FaAngleRight
-                            color={'#5E54F3'}
-                        />
-                    </button>
-                </div>
-            </section>
+                </motion.div>
+            </motion.section>
 
             <section className='h-auto px-20 py-20'>
                 <p className='text-center text-[60px] font-bold mb-5'>
@@ -282,7 +348,6 @@ export default function HomePageNew () {
                     </div>
                 </div>
             </section>
-
         </main>
     )
 }
@@ -307,6 +372,9 @@ const archiData = [
 ]
 
 const imgTechList = [
+    '/tech1.png',
+    '/tech2.png',
+    '/tech3.png',
     '/tech1.png',
     '/tech2.png',
     '/tech3.png',
