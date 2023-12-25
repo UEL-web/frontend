@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useCallback, useRef} from "react";
 import CardArchi from "../components/home/CardArchi";
 import CardFeedback from "../components/home/CardFeedback";
 import {Swiper, SwiperSlide} from "swiper/react";
@@ -9,16 +9,32 @@ import 'swiper/css/pagination';
 
 // import required modules
 import { Pagination } from 'swiper/modules';
+import CardTech from "../components/home/CardTech";
+import {FaAngleLeft, FaAngleRight} from "react-icons/fa";
+import CardQuestion from "../components/home/CardQuestion";
 
 export default function HomePageNew () {
+
+    const sliderRef = useRef(null);
+
+    const handlePrev = useCallback(() => {
+        if (!sliderRef.current) return;
+        sliderRef.current.swiper.slidePrev();
+    }, []);
+
+    const handleNext = useCallback(() => {
+        if (!sliderRef.current) return;
+        sliderRef.current.swiper.slideNext();
+    }, []);
+
     return (
         <main className='container m-auto text-white h-auto mt-5'>
-            <section className='h-auto px-20 py-20'>
+            <section className='h-auto lg:px-20 lg:py-20 p-2'>
                 <div className='grid grid-cols-12 gap-5'>
-                    <div className='col-span-6 pt-10 '>
+                    <div className='lg:col-span-6 col-span-12 pt-10 lg:order-1 order-last'>
                         <div className='w-full h-full flex items-end'>
                             <div>
-                                <h1 className='text-6xl font-bold mb-4'>
+                                <h1 className='lg:text-6xl text-5xl font-bold mb-4'>
                                     Được <span className='text-[#5E54F3]'>hơn 5000</span> <br/> học viên tin chọn
                                 </h1>
                                 <p className='leading-relaxed font-thin mb-9'>
@@ -40,7 +56,7 @@ export default function HomePageNew () {
                             </div>
                         </div>
                     </div>
-                    <div className='col-span-6 pt-3 flex justify-center items-center'>
+                    <div className='lg:col-span-6 col-span-12 pt-3 flex justify-center items-center order-2'>
                         <img
                             src="/banner1.png"
                             alt=""
@@ -49,13 +65,13 @@ export default function HomePageNew () {
                 </div>
             </section>
 
-            <section className='h-auto px-20 py-20'>
-                <h2 className='text-6xl font-bold pb-9 mb-9 text-center'>
+            <section className='h-auto lg:p-20 p-2'>
+                <h2 className='lg:text-6xl text-5xl font-bold lg:pb-9 mb-9 text-center'>
                     Thành tựu ấn tượng
                 </h2>
 
                 <div className='container my-10 w-full h-auto'>
-                    <div className='grid grid-cols-4 gap-10'>
+                    <div className='grid grid-cols-4 gap-10 lg:px-0 px-20'>
                         {
                             archiData.map((item, index) => (
                                 <CardArchi key={index} title={item.title} content={item.content} />
@@ -186,27 +202,87 @@ export default function HomePageNew () {
                                     />
                                 </SwiperSlide>
                             </Swiper>
-
                         </div>
                     </div>
                 </div>
             </section>
 
             <section className='my-20 text-white bg-gradient-to-r from-[#5E54F3] from-17% to-[#D743FB] to-103% rounded-3xl'>
-                <p className='text-center text-[60px] font-bold mb-10'>
+                <p className='text-center text-[60px] font-bold'>
                     Công nghệ sử dụng
                 </p>
-                <Swiper
-                    spaceBetween={50}
-                    slidesPerView={1}
-                    onSlideChange={() => console.log('slide change')}
-                    onSwiper={(swiper) => console.log(swiper)}
-                    // pagination={true}
-                    // modules={[Pagination]}
-                >
-
-                </Swiper>
+                <div className='px-[200px] py-10 relative'>
+                    <Swiper
+                        ref={sliderRef}
+                        slidesPerView={3}
+                        spaceBetween={0}
+                        // pagination={{
+                        //     clickable: true,
+                        // }}
+                        // modules={[Pagination]}
+                        className="mySwiper"
+                    >
+                        {imgTechList.map((tech, index) => (
+                            <SwiperSlide key={index}>
+                                <CardTech
+                                    url={tech}
+                                />
+                            </SwiperSlide>
+                        ))}
+                        {imgTechList.map((tech, index) => (
+                            <SwiperSlide key={index}>
+                                <CardTech
+                                    url={tech}
+                                />
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                    <button
+                        type='button'
+                        className='absolute top-1/2 left-20 transform -translate-y-1/2 border-none outline-none bg-white rounded-full w-[50px] h-[50px] flex justify-center items-center text-black text-3xl text-[#5E54F3]'
+                        onClick={handlePrev}
+                    >
+                        <FaAngleLeft
+                            color={'#5E54F3'}
+                        />
+                    </button>
+                    <button
+                        type='button'
+                        className='absolute top-1/2 right-20 transform -translate-y-1/2 border-none outline-none bg-white rounded-full w-[50px] h-[50px] flex justify-center items-center text-black text-3xl'
+                        onClick={handleNext}
+                    >
+                        <FaAngleRight
+                            color={'#5E54F3'}
+                        />
+                    </button>
+                </div>
             </section>
+
+            <section className='h-auto px-20 py-20'>
+                <p className='text-center text-[60px] font-bold mb-5'>
+                    Câu hỏi thường gặp
+                </p>
+                <div className='w-full h-auto grid grid-cols-2 gap-10'>
+                    <div className='col-span-1 '>
+                        {questionsList1.map((question, index) => (
+                            <CardQuestion
+                                key={index}
+                                question={question}
+                            />
+                        ))}
+                    </div>
+
+                    <div className='col-span-1 '>
+                        {questionsList2.map((question, index) => (
+                            <CardQuestion
+                                key={index}
+                                question={question}
+                            />
+                        ))}
+                    </div>
+                </div>
+            </section>
+
         </main>
     )
 }
@@ -228,4 +304,28 @@ const archiData = [
         title: '10+',
         content: 'Trường Đại học hợp tác trên khắp cả nước'
     },
+]
+
+const imgTechList = [
+    '/tech1.png',
+    '/tech2.png',
+    '/tech3.png',
+]
+
+const questionsList1 = [
+    'Khóa học này dành cho ai?',
+    'Tôi cần có kiến thức gì trước khi tham gia khóa học?',
+    'Khóa học sẽ đào tạo những kỹ năng gì?',
+    'Tôi cần bao nhiêu thời gian để hoàn thành khóa học?',
+    // 'Sau khi hoàn thành khóa học, tôi có thể làm được gì?',
+    // 'Khóa học có yêu cầu bằng cấp gì không?',
+    // 'Học phí của khóa học là bao nhiêu?',
+    // 'Khóa học có đảm bảo tuyển dụng không?'
+]
+
+const questionsList2 = [
+    'Sau khi hoàn thành khóa học, tôi có thể làm được gì?',
+    'Khóa học có yêu cầu bằng cấp gì không?',
+    'Học phí của khóa học là bao nhiêu?',
+    'Khóa học có đảm bảo tuyển dụng không?'
 ]

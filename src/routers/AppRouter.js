@@ -28,7 +28,7 @@ export default function AppRouter() {
                 <Route path={PATH.HOME} element={
                     <Suspense fallback={<Loading />}>
                         <MainLayout>
-                            <HomePage />
+                            <HomePageNew />
                         </MainLayout>
                     </Suspense>
                 } />

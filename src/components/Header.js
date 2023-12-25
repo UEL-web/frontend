@@ -39,7 +39,7 @@ function Header() {
                   </Link>
               </div>
 
-              <div className='col-span-8 outline'>
+              <div className='col-span-8 outline lg:block hidden'>
                   <nav className='outline h-full flex items-center justify-center'>
                       <NavButton href={PATH.HOME}>
                           {LABEL.HOME}
