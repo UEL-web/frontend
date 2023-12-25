@@ -19,6 +19,7 @@ import MyCoursesPage from "../pages/MyCoursesPage";
 import MyCourseTabTage from "../components/MyCourseTabTage";
 import DocumentDetailPage from "../pages/DocumentDetailPage";
 import BlogDetailPage from "../pages/BlogDetailPage";
+import HomePageNew from "../pages/HomePageNew";
 
 
 export default function AppRouter() {
@@ -132,13 +133,25 @@ export default function AppRouter() {
                 </Suspense>
             } />
 
-                <Route path={PATH.REGISTER} element={
+            <Route path={PATH.REGISTER} element={
+                <Suspense fallback={<Loading />}>
+                    <MainLayout>
+                        <RegisterPage />
+                    </MainLayout>
+                </Suspense>
+            } />
+
+            <Route
+                path='/homenew'
+                element={
                     <Suspense fallback={<Loading />}>
                         <MainLayout>
-                            <RegisterPage />
+                            {/*<RegisterPage />*/}
+                            <HomePageNew />
                         </MainLayout>
                     </Suspense>
-                } />
+                }
+            />
         </Routes>
     )
 }
