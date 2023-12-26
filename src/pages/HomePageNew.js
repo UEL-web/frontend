@@ -8,7 +8,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 
 // import required modules
-import { Pagination } from 'swiper/modules';
+import {Pagination, Autoplay, Navigation} from 'swiper/modules';
 import CardTech from "../components/home/CardTech";
 import {FaAngleLeft, FaAngleRight} from "react-icons/fa";
 import CardQuestion from "../components/home/CardQuestion";
@@ -32,7 +32,7 @@ export default function HomePageNew () {
 
     return (
         <main className='container m-auto text-white h-auto mt-5'>
-            <section className='h-auto lg:px-20 lg:py-20 p-2'>
+            <section className='h-auto lg:px-20 lg:pb-20 p-2'>
                 <motion.div
                     variants={staggerContainer}
                     initial="hidden"
@@ -220,12 +220,18 @@ export default function HomePageNew () {
                     >
                         <div className='w-full h-auto bg-white rounded-3xl text-black p-3 '>
                             <Swiper
-                                spaceBetween={50}
-                                slidesPerView={1}
-                                onSlideChange={() => console.log('slide change')}
-                                onSwiper={(swiper) => console.log(swiper)}
-                                pagination={true}
-                                modules={[Pagination]}
+                                spaceBetween={30}
+                                centeredSlides={true}
+                                autoplay={{
+                                    delay: 2500,
+                                    disableOnInteraction: false,
+                                }}
+                                pagination={{
+                                    clickable: true,
+                                }}
+                                navigation={true}
+                                modules={[Autoplay, Pagination, Navigation]}
+                                className="mySwiper"
                             >
                                 <SwiperSlide>
                                     <CardFeedback
