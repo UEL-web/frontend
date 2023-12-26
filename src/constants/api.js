@@ -1,4 +1,5 @@
 export const BASE_URL = process.env.REACT_APP_API_URL || 'http://127.0.0.1:8000'
+// export const USER_API = process.env.REACT_APP_API_URL || 'http://127.0.0.1:8000/user/'
 
 export const COURSE_API = `${BASE_URL}/api/courses/`
 export const MY_COURSE_API = `${BASE_URL}/api/courses/my-courses/`
