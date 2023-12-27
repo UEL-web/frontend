@@ -2,6 +2,7 @@ import React, {useCallback, useRef} from "react";
 import CardArchi from "../components/home/CardArchi";
 import CardFeedback from "../components/home/CardFeedback";
 import {Swiper, SwiperSlide} from "swiper/react";
+import { Link as LinkScroll } from 'react-scroll';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -58,12 +59,12 @@ export default function HomePageNew () {
                                         placeholder="Email/ Số điện thoại"
                                         className='w-3/5 h-full bg-white outline-none text-black p-2 rounded-full'
                                     />
-                                    <button
+                                    <LinkScroll to="contact" spy={true} smooth={true} duration={500}
                                         type='button'
-                                        className='uppercase py-2 px-4 rounded-full bg-white font-semibold text-sm bg-gradient-to-r from-linear-first to-linear-second text-white'
+                                        className='uppercase py-2 cursor-pointer px-4 rounded-full bg-white font-semibold text-sm bg-gradient-to-r from-linear-first to-linear-second text-white'
                                     >
                                         Tư vấn ngay
-                                    </button>
+                                    </LinkScroll>
                                 </form>
                             </div>
                         </div>

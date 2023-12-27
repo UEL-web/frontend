@@ -20,6 +20,8 @@ import MyCourseTabTage from "../components/MyCourseTabTage";
 import DocumentDetailPage from "../pages/DocumentDetailPage";
 import BlogDetailPage from "../pages/BlogDetailPage";
 import HomePageNew from "../pages/HomePageNew";
+import NotFoundPage from "../pages/NotFoundPage";
+import PolicyPage from "../pages/PolicyPage";
 
 
 export default function AppRouter() {
@@ -91,6 +93,22 @@ export default function AppRouter() {
                         </MainLayout>
                     </Suspense>
                 } />
+
+            <Route path='/404' element={
+                <Suspense fallback={<Loading />}>
+                    <MainLayout>
+                        <NotFoundPage />
+                    </MainLayout>
+                </Suspense>
+            } />
+
+            <Route path='/policy' element={
+                <Suspense fallback={<Loading />}>
+                    <MainLayout>
+                        <PolicyPage />
+                    </MainLayout>
+                </Suspense>
+            } />
 
 
             <Route path={PATH.DOCUMENT + "/:id"} element={

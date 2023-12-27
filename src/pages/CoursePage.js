@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { CiClock2 } from "react-icons/ci";
 import { IoPersonOutline } from "react-icons/io5";
 import 'swiper/css';
-import {Link, useLocation, useParams} from "react-router-dom";
+import {Link, useLocation, useNavigate, useParams} from "react-router-dom";
 import Pagination from "../components/Pagination";
 import ConsultationForm from "../components/ConsultationForm";
 import {useEffect, useState} from "react";
@@ -17,6 +17,8 @@ import {useDispatch} from "react-redux";
 import {addToCart} from "../redux-action/cartAction";
 import {getQueryVariable} from "../utils/getQuery";
 import classnames from "classnames";
+import {Link as LinkScroll} from "react-scroll";
+import {MdKeyboardArrowRight} from "react-icons/md";
 
 function CoursePage() {
     const [courses, setCourses] = useState(null)
@@ -25,7 +27,8 @@ function CoursePage() {
     const [category, setCategory] = useState(null)
     const params = useParams()
     const location = useLocation()
-
+    const [categoryName, setCategoryName] = useState(null)
+    const navigate = useNavigate()
 
     useEffect(() => {
         setCourses(null)
@@ -34,6 +37,10 @@ function CoursePage() {
             setCourses(res.data)
             setCurrentPage(res.current_page)
             setTotalPage(res.total_page)
+            setCategoryName(res.category)
+        }).catch((err) => {
+            console.log(err)
+            navigate('/404')
         })
     }, [params])
 
@@ -41,6 +48,9 @@ function CoursePage() {
         getCourseCategory().then((res) => {
             if (!res.success) return toast.error(res.message, toastConfig)
             setCategory(res.data)
+        }).catch((err) => {
+            console.log(err)
+            navigate('/404')
         })
     }, [])
 
@@ -57,14 +67,20 @@ function CoursePage() {
 
     return (
         <div className="container m-auto h-auto text-white">
-            <section className="h-auto">
+            <section className="h-auto relative z-0">
                 <img src={BANNER.HOME}/>
+                <LinkScroll className='absolute bottom-10 left-32 cursor-pointer' to="contact" spy={true} smooth={true} duration={500}>
+                    <div className='text-white cursor-pointer py-2 px-4 flex justify-center items-center rounded bg-gradient-to-r from-[#5E54F3] to-[#F74986]'>
+                        <p className='text-xl font-medium'> Đăng kí tư vấn ngay </p>
+                        <MdKeyboardArrowRight size={30} />
+                    </div>
+                </LinkScroll>
             </section>
 
             <section className="h-auto py-1">
                 <div className="grid grid-cols-12 gap-2">
                     <div className="col-span-8 py-10">
-                        <h1 className="text-6xl font-bold"> KHÓA HỌC </h1>
+                        <h1 className="text-6xl font-bold"> {categoryName} </h1>
                     </div>
                     <div className="col-span-4 py-3 flex justify-center items-center">
                         <div className="h-fit ml-auto grid grid-cols-12 gap-2 bg-white py-2 px-4 rounded-xl">

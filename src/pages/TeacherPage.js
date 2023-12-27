@@ -13,7 +13,6 @@ function TeacherPage() {
     const [currentPage, setCurrentPage] = useState(1)
     const [totalPage, setTotalPage] = useState(1)
 
-
     useEffect(() => {
         setTeachers(null)
         getTeacher().then((res) => {

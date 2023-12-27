@@ -1,7 +1,7 @@
 import BANNER from "../constants/banners";
 import {CiClock2, CiSearch} from "react-icons/ci";
 import {Swiper, SwiperSlide} from "swiper/react";
-import {Link, useLocation, useParams} from "react-router-dom";
+import {Link, useLocation, useNavigate, useParams} from "react-router-dom";
 import Pagination from "../components/Pagination";
 import ConsultationForm from "../components/ConsultationForm";
 import {IoPersonOutline} from "react-icons/io5";
@@ -13,6 +13,8 @@ import {toastConfig} from "../config/toastConfig";
 import {PATH} from "../constants/paths";
 import classnames from "classnames";
 import Loading from "../components/Loading";
+import {Link as LinkScroll} from "react-scroll";
+import {MdKeyboardArrowRight} from "react-icons/md";
 
 function DocumentPage() {
     const [document, setDocument] = useState(null)
@@ -21,6 +23,8 @@ function DocumentPage() {
     const [category, setCategory] = useState(null)
     const params = useParams()
     const location = useLocation()
+    const [categoryName, setCategoryName] = useState(null)
+    const navigate = useNavigate()
 
     useEffect(() => {
         setDocument(null)
@@ -29,6 +33,10 @@ function DocumentPage() {
             setDocument(res.data)
             setCurrentPage(res.current_page)
             setTotalPage(res.total_page)
+            setCategoryName(res.category)
+        }).catch((err) => {
+            console.log(err)
+            navigate('/404')
         })
     }, [params])
 
@@ -36,6 +44,9 @@ function DocumentPage() {
         getDocumentCategory().then((res) => {
             if (!res.success) return toast.error(res.message, toastConfig)
             setCategory(res.data)
+        }).catch((err) => {
+            console.log(err)
+            navigate('/404')
         })
     }, [])
 
@@ -47,20 +58,29 @@ function DocumentPage() {
             setDocument(res.data)
             setCurrentPage(res.current_page)
             setTotalPage(res.total_page)
+        }).catch((err) => {
+            console.log(err)
+            navigate('/404')
         })
     }
 
     return (
     <div>
         <div className="container m-auto h-auto text-white">
-            <section className="h-auto">
-                <img src={BANNER.DOCUMENT}/>
+            <section className="h-auto relative">
+                <img src={BANNER.HOME}/>
+                <LinkScroll className='absolute bottom-10 left-32 cursor-pointer' to="contact" spy={true} smooth={true} duration={500}>
+                    <div className='text-white py-2 px-4 flex justify-center items-center rounded bg-gradient-to-r from-[#5E54F3] to-[#F74986]'>
+                        <p className='text-xl font-medium'> Đăng kí tư vấn ngay </p>
+                        <MdKeyboardArrowRight size={30} />
+                    </div>
+                </LinkScroll>
             </section>
 
             <section className="h-auto py-1">
                 <div className="grid grid-cols-12 gap-2">
                     <div className="col-span-8 py-10">
-                        <h1 className="text-6xl font-bold"> TÀI LIỆU </h1>
+                        <h1 className="text-6xl font-bold"> {categoryName} </h1>
                     </div>
                     <div className="col-span-4 py-3 flex justify-center items-center">
                         <div className="h-fit ml-auto grid grid-cols-12 gap-2 bg-white py-2 px-4 rounded-xl">

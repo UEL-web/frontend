@@ -9,11 +9,15 @@ import Breadcrumbs from "../components/Breadcrumbs";
 function DocumentDetailPage () {
   const params = useParams()
   const [document, setDocument] = useState(null)
+    const navigate = useNavigate();
 
   useEffect(() => {
     getDocumentDetail(params.id).then((res) => {
       if (!res.success) return toast.error(res.message, toastConfig)
       setDocument(res.data)
+    }).catch((err) => {
+        console.log(err)
+        navigate('/404')
     })
   })
 

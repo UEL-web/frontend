@@ -13,7 +13,7 @@ import { Pagination } from 'swiper/modules';
 import '../App.css'
 // English.
 import vi from 'javascript-time-ago/locale/vi'
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import SuggestBlogs from "../components/SuggestBlogs";
 
 TimeAgo.addDefaultLocale(vi)
@@ -26,6 +26,7 @@ function BlogPage () {
     const [outstandingBlog, setOutstandingBlog] = useState(null)
     const [blog, setBlog] = useState(null)
     const [bannerBlog, setBannerBlog] = useState(false)
+    const navigate = useNavigate();
 
     useEffect(
         () => {
@@ -33,23 +34,35 @@ function BlogPage () {
             getNewestBlogs().then((res) => {
                 if (!res.success) return toast.error(res.message, toastConfig)
                 setNewestBlog(res.data)
+            }).catch((err) => {
+                console.log(err)
+                navigate('/404')
             })
 
             setOutstandingBlog(null)
             getOutstandingBlogs().then((res) => {
                 if (!res.success) return toast.error(res.message, toastConfig)
                 setOutstandingBlog(res.data)
+            }).catch((err) => {
+                console.log(err)
+                navigate('/404')
             })
 
             setBlog(null)
             getBlogs().then((res) => {
                 if (!res.success) return toast.error(res.message, toastConfig)
                 setBlog(res.data)
+            }).catch((err) => {
+                console.log(err)
+                navigate('/404')
             })
 
             getBannerBlock().then((res) => {
                 if (!res.success) return toast.error(res.message, toastConfig)
                 setBannerBlog(res.data)
+            }).catch((err) => {
+                console.log(err)
+                navigate('/404')
             })
         }, [])
 

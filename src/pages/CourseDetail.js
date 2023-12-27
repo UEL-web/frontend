@@ -1,7 +1,7 @@
 import Breadcrumbs from "../components/Breadcrumbs";
 import Loading from "../components/Loading";
 import {MdKeyboardArrowRight} from "react-icons/md";
-import {Link, useParams} from "react-router-dom";
+import {Link, useNavigate, useParams} from "react-router-dom";
 import {PATH} from "../constants/paths";
 import {CiClock2} from "react-icons/ci";
 import {IoPersonOutline} from "react-icons/io5";
@@ -17,7 +17,7 @@ function CourseDetail() {
     const [loading, setLoading] = useState(false)
     const params = useParams()
     const [course, setCourse] = useState(null)
-
+    const navigate = useNavigate();
     const dispath = useDispatch();
 
     const handleAddToCart = () => {
@@ -33,6 +33,9 @@ function CourseDetail() {
             setLoading(false)
             if (!res.success) return toast.error(res.message, toastConfig)
             setCourse(res.data)
+        }).catch((err) => {
+            console.log(err)
+            navigate('/404')
         })
     }, [params.id])
 

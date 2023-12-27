@@ -51,33 +51,33 @@ function Footer() {
 
             <div className='col-span-3 flex flex-col gap-2'>
                 <p className='text-black text-lg font-bold'> Quy định và chính sách </p>
-                <p>
+                <Link to='/policy' className='hover:underline'>
                     <LuDot size={20} className='inline-block text-red-500' />
                     <span className='text-base font-normal text-white'> Chính sách & quy định chung </span>
-                </p>
+                </Link>
 
-                <p>
+                <Link to='/policy' className='hover:underline'>
                     <LuDot size={20} className='inline-block text-red-500' />
                     <span className='text-base font-normal text-white'> Chính sách và quyền riêng tư </span>
-                </p>
+                </Link>
 
-                <p>
+                <Link to='/policy' className='hover:underline'>
                     <LuDot size={20} className='inline-block text-red-500' />
                     <span className='text-base font-normal text-white'> Chính sách bảo mật thông tin </span>
-                </p>
+                </Link>
             </div>
 
             <div className='col-span-3 flex flex-col gap-2'>
                 <p className='text-black text-lg font-bold'> Về chúng tôi </p>
-                <p>
+                <Link to='/blog' className='hover:underline'>
                     <LuDot size={20} className='inline-block text-red-500' />
                     <span className='text-base font-normal text-white'> Blog </span>
-                </p>
+                </Link>
 
-                <p>
+                <Link to='/' className='hover:underline'>
                     <LuDot size={20} className='inline-block text-red-500' />
                     <span className='text-base font-normal text-white'> Thành tựu ấn tuượng </span>
-                </p>
+                </Link>
             </div>
         </div>
     </footer>
