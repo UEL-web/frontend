@@ -69,7 +69,7 @@ function DocumentPage() {
         <div className="container m-auto h-auto text-white">
             <section className="h-auto relative">
                 <img src={BANNER.HOME}/>
-                <LinkScroll className='absolute bottom-10 left-32 cursor-pointer' to="contact" spy={true} smooth={true} duration={500}>
+                <LinkScroll className='absolute bottom-10 left-[158px] cursor-pointer' to="contact" spy={true} smooth={true} duration={500}>
                     <div className='text-white py-2 px-4 flex justify-center items-center rounded bg-gradient-to-r from-[#5E54F3] to-[#F74986]'>
                         <p className='text-xl font-medium'> Đăng kí tư vấn ngay </p>
                         <MdKeyboardArrowRight size={30} />
@@ -142,7 +142,7 @@ export default DocumentPage;
 
 function DocumentCard({document}) {
     return (
-        <div className="col-span-3 p-4 grid gap-2 grid-rows-5 h-[310px] border border-gray-800 cursor-pointer">
+        <div className="col-span-3 p-4 grid gap-2 grid-rows-5 h-[310px] rounded-md overflow-hidden border border-gray-800 cursor-pointer">
             <div className="row-span-3 flex items-center">
                 {
                     document?.image ? <img src={document?.image} className='w-full h-full object-cover' /> : <img src='/default_img.png' className='w-full h-full object-cover' />

@@ -69,7 +69,7 @@ function CoursePage() {
         <div className="container m-auto h-auto text-white">
             <section className="h-auto relative z-0">
                 <img src={BANNER.HOME}/>
-                <LinkScroll className='absolute bottom-10 left-32 cursor-pointer' to="contact" spy={true} smooth={true} duration={500}>
+                <LinkScroll className='absolute bottom-10 left-[158px] cursor-pointer' to="contact" spy={true} smooth={true} duration={500}>
                     <div className='text-white cursor-pointer py-2 px-4 flex justify-center items-center rounded bg-gradient-to-r from-[#5E54F3] to-[#F74986]'>
                         <p className='text-xl font-medium'> Đăng kí tư vấn ngay </p>
                         <MdKeyboardArrowRight size={30} />
@@ -148,7 +148,7 @@ function CourseCard({course}) {
     }
 
     return (
-        <div className="col-span-3 grid grid-rows-5 h-[400px] border border-gray-800 cursor-pointer">
+        <div className="col-span-3 grid rounded-md	 overflow-hidden grid-rows-5 h-[400px] border border-gray-800 cursor-pointer">
             <div className="row-span-3 flex items-center">
                 {
                     course?.course_img ? <img src={course?.course_img} className='w-full h-full object-cover' /> :

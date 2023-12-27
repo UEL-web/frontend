@@ -1,4 +1,4 @@
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {getDocumentDetail} from "../apis/api";
 import {toast} from "react-toastify";
@@ -17,7 +17,7 @@ function DocumentDetailPage () {
       setDocument(res.data)
     }).catch((err) => {
         console.log(err)
-        navigate('/404')
+        // navigate('/404')
     })
   })
 

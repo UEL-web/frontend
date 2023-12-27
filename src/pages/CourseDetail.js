@@ -35,7 +35,7 @@ function CourseDetail() {
             setCourse(res.data)
         }).catch((err) => {
             console.log(err)
-            navigate('/404')
+            // navigate('/404')
         })
     }, [params.id])
 
