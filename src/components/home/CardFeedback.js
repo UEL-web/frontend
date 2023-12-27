@@ -11,10 +11,10 @@ export default function CardFeedback ({ name, content, avatar, student }) {
                 />
 
                 <div className='flex flex-col justify-around items-start'>
-                    <p className='text-[30px] font-bold'>
+                    <p className='lg:text-[30px] text-[20px] font-bold'>
                         {name}
                     </p>
-                    <p className='text-[22px]'>
+                    <p className='lg:text-[22px]'>
                         {student}
                     </p>
                     <div className="flex items-center">
@@ -36,7 +36,7 @@ export default function CardFeedback ({ name, content, avatar, student }) {
                     </div>
                 </div>
             </div>
-            <p className='text-[30px] font-thin px-10 mb-10'>
+            <p className='lg:text-[30px] text-[20px] font-thin px-10 mb-10'>
                 Giảng viên Analytix rất nhiệt tình. Mình rất ấn tượng với cách trình bày dữ liệu trên Power BI và Data Storytelling.
             </p>
         </div>

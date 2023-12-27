@@ -99,7 +99,7 @@ export default function HomePageNew () {
                 </motion.h2>
 
                 <div className='container my-10 w-full h-auto'>
-                    <div className='grid grid-cols-4 gap-10 lg:px-0 px-20'>
+                    <div className='grid lg:grid-cols-4 grid-cols-2 lg:gap-10 gap-5 lg:px-20 px-2 '>
                         {
                             archiData.map((item, index) => (
                                 <CardArchi key={index} index={index} title={item.title} content={item.content} number={item.number} />
@@ -109,18 +109,18 @@ export default function HomePageNew () {
                 </div>
             </motion.section>
 
-            <section className='h-auto px-20 py-20'>
+            <section className='h-auto lg:px-20 px-2 py-20'>
                 <motion.div
                     variants={staggerContainer}
                     initial="hidden"
                     whileInView="show"
                     viewport={{ once: false, amount: 0.25 }}
-                    className='grid grid-cols-2 gap-10'
+                    className='grid lg:grid-cols-2 grid-cols-1 lg:gap-10 gap-5'
                 >
-                    <div className='col-span-1 w-full h-full flex flex-col justify-around items-center'>
+                    <div className='col-span-1 w-full h-full flex flex-col justify-around items-center lg:order-1 order-last'>
                         <motion.div
                             variants={fadeIn('left', 'tween', 0.2, 0.5)}
-                            className='grid grid-cols-2 gap-5'
+                            className='grid grid-cols-2 gap-5 '
                         >
                             <div className='col-span-1 flex flex-col justify-around items-center gap-5'>
                                 <div className='p-4 rounded-[24px] border-[#F74986] border-[1px] bg-white text-black hover:text-white hover:bg-transparent transition duration-200 ease-in-out'>
@@ -174,7 +174,7 @@ export default function HomePageNew () {
                     </div>
                     <motion.div
                         variants={fadeIn('right', 'tween', 0.2, 0.5)}
-                        className='col-span-1 w-full h-full'
+                        className='col-span-1 w-full h-full order-2'
                     >
                         <div className='w-full h-auto flex justify-center items-center gap-2 font-bold bg-gradient-to-b from-[#F74986] to-[#fff] text-transparent bg-clip-text'>
                             <span className='text-[85px]'>
@@ -199,19 +199,19 @@ export default function HomePageNew () {
                 </motion.div>
             </section>
 
-            <section className='h-auto px-20 py-20'>
+            <section className='h-auto lg:px-20 px-2 py-20'>
                 <motion.div
                     variants={staggerContainer}
                     initial="hidden"
                     whileInView="show"
                     viewport={{ once: false, amount: 0.25 }}
-                    className='grid grid-cols-3 gap-10'
+                    className='grid lg:grid-cols-3 grid-cols-1 gap-10'
                 >
                     <motion.div
                         variants={fadeIn('left', 'tween', 0.2, 0.5)}
                         className='col-span-1'
                     >
-                        <p className='text-[70px] font-bold'>
+                        <p className='lg:text-[70px] text-[48px] font-bold text-center lg:text-left'>
                             Cảm nhận học viên
                         </p>
                     </motion.div>
@@ -332,11 +332,11 @@ export default function HomePageNew () {
                 </motion.div>
             </motion.section>
 
-            <section className='h-auto px-20 py-20'>
-                <p className='text-center text-[60px] font-bold mb-5'>
+            <section className='h-auto lg:px-20 px-2 py-20'>
+                <p className='text-center lg:text-[60px] text-[48px] font-bold mb-5'>
                     Câu hỏi thường gặp
                 </p>
-                <div className='w-full h-auto grid grid-cols-2 gap-10'>
+                <div className='w-full h-auto grid lg:grid-cols-2 grid-cols-1 lg:gap-10 gap-0'>
                     <div className='col-span-1 '>
                         {questionsList1.map((question, index) => (
                             <CardQuestion
