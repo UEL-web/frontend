@@ -16,6 +16,7 @@ import CardQuestion from "../components/home/CardQuestion";
 
 import { motion } from 'framer-motion';
 import {fadeIn, staggerContainer, textVariant2} from "../utils/motion";
+import {archiData, imgTechList, questionsList1, questionsList2} from "../constants/datahome";
 
 export default function HomePageNew () {
 
@@ -101,7 +102,7 @@ export default function HomePageNew () {
                     <div className='grid grid-cols-4 gap-10 lg:px-0 px-20'>
                         {
                             archiData.map((item, index) => (
-                                <CardArchi key={index} index={index} title={item.title} content={item.content} />
+                                <CardArchi key={index} index={index} title={item.title} content={item.content} number={item.number} />
                             ))
                         }
                     </div>
@@ -122,7 +123,7 @@ export default function HomePageNew () {
                             className='grid grid-cols-2 gap-5'
                         >
                             <div className='col-span-1 flex flex-col justify-around items-center gap-5'>
-                                <div className='p-4 rounded-[24px] border-[#F74986] border-[1px]'>
+                                <div className='p-4 rounded-[24px] border-[#F74986] border-[1px] bg-white text-black hover:text-white hover:bg-transparent transition duration-200 ease-in-out'>
                                     <p className='mb-1 text-[40px] font-bold'>
                                         01
                                     </p>
@@ -131,7 +132,7 @@ export default function HomePageNew () {
                                     </p>
                                 </div>
 
-                                <div className='p-4 rounded-[24px] border-[#F74986] border-[1px] bg-white text-black'>
+                                <div className='p-4 rounded-[24px] border-[#F74986] border-[1px] bg-white text-black hover:text-white hover:bg-transparent transition duration-200 ease-in-out'>
                                     <p className='mb-1 text-[40px] font-bold'>
                                         02
                                     </p>
@@ -142,7 +143,7 @@ export default function HomePageNew () {
                             </div>
 
                             <div className='col-span-1 flex flex-col justify-around items-center gap-5'>
-                                <div className='p-4 rounded-[24px] border-[#F74986] border-[1px] bg-white text-black'>
+                                <div className='p-4 rounded-[24px] border-[#F74986] border-[1px] bg-white text-black hover:text-white hover:bg-transparent transition duration-200 ease-in-out'>
                                     <p className='mb-1 text-[40px] font-bold'>
                                         03
                                     </p>
@@ -151,7 +152,7 @@ export default function HomePageNew () {
                                     </p>
                                 </div>
 
-                                <div className='p-4 rounded-[24px] border-[#F74986] border-[1px] bg-white text-black'>
+                                <div className='p-4 rounded-[24px] border-[#F74986] border-[1px] bg-white text-black hover:text-white hover:bg-transparent transition duration-200 ease-in-out'>
                                     <p className='mb-1 text-[40px] font-bold'>
                                         04
                                     </p>
@@ -160,7 +161,7 @@ export default function HomePageNew () {
                                     </p>
                                 </div>
 
-                                <div className='p-4 rounded-[24px] border-[#F74986] border-[1px] bg-white text-black'>
+                                <div className='p-4 rounded-[24px] border-[#F74986] border-[1px] bg-white text-black hover:text-white hover:bg-transparent transition duration-200 ease-in-out'>
                                     <p className='mb-1 text-[40px] font-bold'>
                                         05
                                     </p>
@@ -185,14 +186,14 @@ export default function HomePageNew () {
                         </div>
                         <img src="/img.png" alt=""/>
                         <div className='w-full h-auto text-center'>
-                            <button
-                                type='button'
+                            <a
+                                href='/course'
                                 className='uppercase py-3 px-6 rounded-full bg-white font-semibold text-sm bg-gradient-to-b from-[#F74986] to-[#fff] text-white'
                             >
                                 <span>
                                     Khám phá khóa học ngay
                                 </span>
-                            </button>
+                            </a>
                         </div>
                     </motion.div>
                 </motion.div>
@@ -340,7 +341,8 @@ export default function HomePageNew () {
                         {questionsList1.map((question, index) => (
                             <CardQuestion
                                 key={index}
-                                question={question}
+                                question={question.question}
+                                answer={question.answer}
                             />
                         ))}
                     </div>
@@ -349,7 +351,8 @@ export default function HomePageNew () {
                         {questionsList2.map((question, index) => (
                             <CardQuestion
                                 key={index}
-                                question={question}
+                                question={question.question}
+                                answer={question.answer}
                             />
                         ))}
                     </div>
@@ -359,48 +362,5 @@ export default function HomePageNew () {
     )
 }
 
-const archiData = [
-    {
-        title: '30+',
-        content: 'Khóa học được khai giảng'
-    },
-    {
-        title: '5000+',
-        content: 'Học viên được đào tạo từ chương trình'
-    },
-    {
-        title: '>90+',
-        content: 'Học viên feedback tốt về chương trình'
-    },
-    {
-        title: '10+',
-        content: 'Trường Đại học hợp tác trên khắp cả nước'
-    },
-]
 
-const imgTechList = [
-    '/tech1.png',
-    '/tech2.png',
-    '/tech3.png',
-    '/tech1.png',
-    '/tech2.png',
-    '/tech3.png',
-]
 
-const questionsList1 = [
-    'Khóa học này dành cho ai?',
-    'Tôi cần có kiến thức gì trước khi tham gia khóa học?',
-    'Khóa học sẽ đào tạo những kỹ năng gì?',
-    'Tôi cần bao nhiêu thời gian để hoàn thành khóa học?',
-    // 'Sau khi hoàn thành khóa học, tôi có thể làm được gì?',
-    // 'Khóa học có yêu cầu bằng cấp gì không?',
-    // 'Học phí của khóa học là bao nhiêu?',
-    // 'Khóa học có đảm bảo tuyển dụng không?'
-]
-
-const questionsList2 = [
-    'Sau khi hoàn thành khóa học, tôi có thể làm được gì?',
-    'Khóa học có yêu cầu bằng cấp gì không?',
-    'Học phí của khóa học là bao nhiêu?',
-    'Khóa học có đảm bảo tuyển dụng không?'
-]
