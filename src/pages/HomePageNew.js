@@ -17,8 +17,11 @@ import CardQuestion from "../components/home/CardQuestion";
 import { motion } from 'framer-motion';
 import {fadeIn, staggerContainer, textVariant2} from "../utils/motion";
 import {archiData, imgTechList, questionsList1, questionsList2} from "../constants/datahome";
+import {useViewport} from "../hook/useViewport";
 
 export default function HomePageNew () {
+    const viewPort = useViewport();
+    // console.log(viewPort)
 
     const sliderRef = useRef(null);
 
@@ -269,7 +272,7 @@ export default function HomePageNew () {
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: false, amount: 0.25 }}
-                className='w-full h-auto'
+                className='w-full h-auto lg:px-0 px-2'
             >
                 <motion.div
                     variants={fadeIn('up', 'tween', 0.3, 0.5)}
@@ -277,14 +280,14 @@ export default function HomePageNew () {
                 >
                     <motion.p
                         variants={fadeIn('down', 'tween', 0.8, 0.2)}
-                        className='text-center text-[60px] font-bold'
+                        className='text-center lg:text-[60px] text-[38px] font-bold'
                     >
                         Công nghệ sử dụng
                     </motion.p>
-                    <div className='px-[200px] py-10 relative'>
+                    <div className='lg:px-[200px] px-2 py-10 relative'>
                         <Swiper
                             ref={sliderRef}
-                            slidesPerView={4}
+                            slidesPerView={viewPort.width >= 900 ? 4 : 1}
                             spaceBetween={0}
                             // pagination={{
                             //     clickable: true,
@@ -300,18 +303,11 @@ export default function HomePageNew () {
                                     />
                                 </SwiperSlide>
                             ))}
-                            {/*{imgTechList.map((tech, index) => (*/}
-                            {/*    <SwiperSlide key={index}>*/}
-                            {/*        <CardTech*/}
-                            {/*            url={tech}*/}
-                            {/*        />*/}
-                            {/*    </SwiperSlide>*/}
-                            {/*))}*/}
                         </Swiper>
                         <motion.button
                             variants={fadeIn('center', 'tween', 0.8, 0.2)}
                             type='button'
-                            className='absolute top-1/2 left-20 transform -translate-y-1/2 border-none outline-none bg-white rounded-full w-[50px] h-[50px] flex justify-center items-center text-black text-3xl text-[#5E54F3]'
+                            className='absolute top-1/2 lg:left-20 left-1 transform -translate-y-1/2 border-none outline-none bg-white rounded-full w-[50px] h-[50px] flex justify-center items-center text-black text-3xl text-[#5E54F3]'
                             onClick={handlePrev}
                         >
                             <FaAngleLeft
@@ -321,7 +317,7 @@ export default function HomePageNew () {
                         <motion.button
                             variants={fadeIn('center', 'tween', 0.8, 0.2)}
                             type='button'
-                            className='absolute top-1/2 right-20 transform -translate-y-1/2 border-none outline-none bg-white rounded-full w-[50px] h-[50px] flex justify-center items-center text-black text-3xl'
+                            className='absolute top-1/2 lg:right-20 right-1 transform -translate-y-1/2 border-none outline-none bg-white rounded-full w-[50px] h-[50px] flex justify-center items-center text-black text-3xl'
                             onClick={handleNext}
                         >
                             <FaAngleRight

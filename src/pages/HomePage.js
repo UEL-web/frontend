@@ -20,6 +20,7 @@ function HomePage() {
     const [totalPage, setTotalPage] = useState(1)
     const [category, setCategory] = useState(null)
 
+
     useEffect(() => {
         getCourses().then((res) => {
             if (!res.success) return toast.error(res.message, toastConfig)

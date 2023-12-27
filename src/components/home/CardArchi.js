@@ -37,7 +37,7 @@ export default function CardArchi ({ title, content, index, number }) {
         <motion.div
             ref={ref}
             variants={fadeIn('right', 'spring', index * 0.25, 0.75)}
-            className='col-span-1 lg:col-span-4 w-full h-auto p-4 bg-white rounded-2xl custom-shadow'
+            className='col-span-1 w-full h-auto p-4 bg-white rounded-2xl custom-shadow'
         >
             <p className='lg:text-5xl text-3xl font-bold text-[#5E54F3] mb-3'>
                 {title}{count}
