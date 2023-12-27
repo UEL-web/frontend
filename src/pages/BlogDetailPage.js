@@ -29,11 +29,11 @@ function BlogDetailPage(){
 
     return (
         <div className="container m-auto text-white h-auto py-5">
-            <div className='py-3 border-t border-secondary'>
+            <div className='py-3 border-t border-secondary md:px-0 px-5'>
                 <p className="text-3xl font-semibold">{blog?.title}</p>
                 <p>{blog?.created_at && timeAgo.format(new Date(blog?.created_at))}</p>
             </div>
-            <div className="grid grid-cols-12 gap-4 h-auto">
+            <div className="md:grid flex flex-col grid-cols-12 gap-4 h-auto">
                 <div className='col-span-9 p-5 no-tailwindcss-base'>
                     {
                         blog?.body && <HtmlParse html={blog?.body} />

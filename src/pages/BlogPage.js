@@ -132,6 +132,12 @@ function BlogPage () {
                     spaceBetween={10}
                     pagination={true}
                     modules={[Pagination]}
+                    breakpoints={{
+                        320: { slidesPerView: 2, spaceBetween: 5 },
+                        480: { slidesPerView: 2, spaceBetween: 10 },
+                        768: { slidesPerView: 3, spaceBetween: 10 },
+                        1024: { slidesPerView: 4, spaceBetween: 10 },
+                    }}
                 >
                 {
                     outstandingBlog ? outstandingBlog.map((blog, index) => (
@@ -159,7 +165,7 @@ function BlogPage () {
                     blog && blog.length > 0 &&  <NewBlogCard blog={blog[0]} />
                 }
 
-                <div className='col-span-4 gap-3 flex flex-col'>
+                <div className='md:col-span-4 col-span-12 gap-3 flex flex-col'>
                     {
                         blog && blog.length > 0 && blog.slice(1, 5).map((blog, index) => (
                             <MiniBlogCard key={blog.id} blog={blog} />
@@ -167,7 +173,7 @@ function BlogPage () {
                     }
                 </div>
 
-                <div className='col-span-4 p-4 border border-gray-900 h-fit'>
+                <div className='md:col-span-4 col-span-12 p-4 border border-gray-900 h-fit'>
                     <p className='text-secondary font-bold text-xl border-b border-gray-500'>Nên đọc</p>
                     <div className='col-span-4 gap-3 py-2 flex flex-col'>
                         <SuggestBlogs/>
@@ -185,8 +191,8 @@ export default BlogPage
 export function NewBlogCard({reverse = false, blog}) {
     if (reverse) {
         return (
-            <Link to={`${PATH.BLOG}/${blog?.slug}`} className='col-span-4 grid grid-rows-2 max-h-[498px] hover:opacity-90 cursor-pointer border border-gray-900'>
-                <div className='pb-4 pt-2 flex flex-col row-span-1 gap-1 px-3 h-fit'>
+            <Link to={`${PATH.BLOG}/${blog?.slug}`} className='md:col-span-4 col-span-12 grid grid-rows-2 max-h-[498px] hover:opacity-90 cursor-pointer border border-gray-900'>
+                <div className='pb-4 pt-2 flex md:flex-col flex-col-reverse row-span-1 gap-1 px-3 h-fit'>
                         <span className='opacity-70'>
                             {blog?.created_at && timeAgo.format(new Date(blog?.created_at))}
                         </span>
@@ -225,14 +231,14 @@ export function NewBlogCard({reverse = false, blog}) {
         )
     }
     return (
-        <Link to={`${PATH.BLOG}/${blog?.slug}`} className='col-span-4 grid grid-rows-2 max-h-[498px] hover:opacity-90 cursor-pointer border border-gray-900'>
+        <Link to={`${PATH.BLOG}/${blog?.slug}`} className='md:col-span-4 col-span-12 grid grid-rows-2 max-h-[498px] hover:opacity-90 cursor-pointer border border-gray-900'>
             <div className='row-span-1 max-h-[280px]'>
                 {
                     blog?.image ? <img src={blog?.image} className='object-cover h-full w-full'  alt={blog?.name}/> :
                         <img src='/default_img.png' className='object-cover h-full w-full' alt={blog?.name} />
                 }
             </div>
-            <div className='pb-4 pt-2 flex flex-col row-span-1 gap-1 px-3 h-fit'>
+            <div className='pb-4 pt-2 flex flex-col md:flex-col row-span-1 gap-1 px-3 h-fit'>
                         <span className='opacity-70'>
                             {blog?.created_at && timeAgo.format(new Date(blog?.created_at))}
                         </span>

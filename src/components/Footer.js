@@ -11,12 +11,12 @@ function Footer() {
   return (
     <footer className='text-white m-auto mt-10'>
         <div className='grid-cols-12 gap-5 grid h-full bg-gradient-to-r from-[#9966FF] to-[#5E54F3] p-5 py-12'>
-            <div className='col-span-3 h-full flex gap-5 flex-col justify-center items-center'>
+            <div className='md:col-span-3 col-span-6 h-full flex gap-5 flex-col justify-center items-center'>
                 <Logo className='text-gray-800 h-24 w-fit' />
                 <p className='text-black text-base font-medium'>Expertise - Excellence - Exploration</p>
             </div>
 
-            <div className='col-span-3 flex flex-col gap-2'>
+            <div className='md:col-span-3 col-span-6 flex flex-col gap-2'>
                 <p className='text-black text-lg font-bold'> Thông tin liên hệ </p>
                 <p className='text-base font-normal text-white'>
                     <MdOutlineLocalPhone size={20} className='inline-block mr-2 text-red-500' />
@@ -49,7 +49,7 @@ function Footer() {
 
             </div>
 
-            <div className='col-span-3 flex flex-col gap-2'>
+            <div className='md:col-span-3 col-span-6 flex flex-col gap-2'>
                 <p className='text-black text-lg font-bold'> Quy định và chính sách </p>
                 <Link to='/policy' className='hover:underline'>
                     <LuDot size={20} className='inline-block text-red-500' />
@@ -67,7 +67,7 @@ function Footer() {
                 </Link>
             </div>
 
-            <div className='col-span-3 flex flex-col gap-2'>
+            <div className='md:col-span-3 col-span-6 flex flex-col gap-2'>
                 <p className='text-black text-lg font-bold'> Về chúng tôi </p>
                 <Link to='/blog' className='hover:underline'>
                     <LuDot size={20} className='inline-block text-red-500' />

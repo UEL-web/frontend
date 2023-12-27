@@ -35,19 +35,19 @@ function TeacherPage() {
     }
 
   return (
-      <div className="container m-auto h-auto text-white">
-          <section className="h-auto my-20 flex flex-col gap-5">
-              <h1 className="text-4xl font-bold py-2"> CHUYÊN GIA CỦA CHÚNG TÔI </h1>
-              <p className='w-1/2'>
+      <div className="container m-auto h-auto text-white px-5 md:px-0">
+          <section className="h-auto my-10 md:my-20 flex flex-col gap-5">
+              <h1 className="md:text-4xl text-2xl font-bold py-2"> CHUYÊN GIA CỦA CHÚNG TÔI </h1>
+              <p className='md:w-1/2 w-full'>
                   Giảng viên tại Analytics là những người có ít nhất 5 năm kinh nghiệm trong lĩnh vực Data.
                   Giảng viên vừa trực tiếp làm việc tại các doanh nghiệp vừa song song giảng dạy tại Analytics.
                   Vì vậy, sinh viên Analytics sẽ được tiếp cận những kiến thức và nhu cầu thực tế nhất của ngành.
               </p>
 
-              <div className='w-fit pt-5 flex justify-center cursor-pointer'>
+              <div className='w-fit md:pt-5 pt-2 flex justify-center cursor-pointer'>
                   <LinkScroll to="contact" spy={true} smooth={true} duration={500}>
-                      <div className='text-white py-2 px-4 flex justify-center items-center rounded bg-gradient-to-r from-[#5E54F3] to-[#F74986]'>
-                          <p className='text-xl font-medium'>Đăng ký ngay </p>
+                      <div className='text-white md:py-2 md:px-4 py-1 px-2 flex justify-center items-center rounded bg-gradient-to-r from-[#5E54F3] to-[#F74986]'>
+                          <p className='md:text-xl text-xs font-medium'> Đăng kí tư vấn ngay </p>
                           <MdKeyboardArrowRight size={30} />
                       </div>
                   </LinkScroll>
@@ -56,8 +56,8 @@ function TeacherPage() {
 
           <section className="h-auto py-1">
               <div className="grid grid-cols-12 gap-2">
-                  <div className="col-span-8 py-10">
-                      <h1 className="text-6xl font-bold"> ĐỘI NGŨ GIẢNG VIÊN </h1>
+                  <div className="col-span-8 py-0 md:py-10">
+                      <h1 className="md:text-6xl text-2xl font-bold"> ĐỘI NGŨ GIẢNG VIÊN </h1>
                   </div>
               </div>
           </section>
@@ -86,7 +86,7 @@ export default TeacherPage;
 
 function TeacherCard({teacher}) {
     return (
-        <div className="col-span-3 grid grid-rows-6 h-[500px] w-full cursor-pointer group">
+        <div className="md:col-span-3 col-span-6 grid grid-rows-6 md:h-[500px] h-[350px] w-full cursor-pointer group">
             <div className="row-span-5 flex items-center w-full">
                 {
                     teacher?.avatar ? <img src={teacher?.avatar} className='w-full h-full' /> :

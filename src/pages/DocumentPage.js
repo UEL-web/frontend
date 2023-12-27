@@ -69,18 +69,18 @@ function DocumentPage() {
         <div className="container m-auto h-auto text-white">
             <section className="h-auto relative">
                 <img src={BANNER.HOME}/>
-                <LinkScroll className='absolute bottom-10 left-[158px] cursor-pointer' to="contact" spy={true} smooth={true} duration={500}>
-                    <div className='text-white py-2 px-4 flex justify-center items-center rounded bg-gradient-to-r from-[#5E54F3] to-[#F74986]'>
-                        <p className='text-xl font-medium'> Đăng kí tư vấn ngay </p>
+                <LinkScroll className='absolute hidden md:block md:bottom-10 md:left-[158px] bottom-2 left-[10px] cursor-pointer' to="contact" spy={true} smooth={true} duration={500}>
+                    <div className='text-white cursor-pointer md:py-2 md:px-4 py-1 px-2 flex justify-center items-center rounded bg-gradient-to-r from-[#5E54F3] to-[#F74986]'>
+                        <p className='md:text-xl text-xs font-medium'> Đăng kí tư vấn ngay </p>
                         <MdKeyboardArrowRight size={30} />
                     </div>
                 </LinkScroll>
             </section>
 
             <section className="h-auto py-1">
-                <div className="grid grid-cols-12 gap-2">
-                    <div className="col-span-8 py-10">
-                        <h1 className="text-6xl font-bold"> {categoryName} </h1>
+                <div className="md:grid flex flex-col grid-cols-12 gap-2">
+                    <div className="col-span-8 md:py-10 py-3">
+                        <h1 className="md:text-6xl text-3xl font-bold"> {categoryName} </h1>
                     </div>
                     <div className="col-span-4 py-3 flex justify-center items-center">
                         <div className="h-fit ml-auto grid grid-cols-12 gap-2 bg-white py-2 px-4 rounded-xl">
@@ -95,6 +95,12 @@ function DocumentPage() {
                 <Swiper
                     slidesPerView={4}
                     spaceBetween={10}
+                    breakpoints={{
+                        320: { slidesPerView: 2, spaceBetween: 5 },
+                        480: { slidesPerView: 2, spaceBetween: 10 },
+                        768: { slidesPerView: 3, spaceBetween: 10 },
+                        1024: { slidesPerView: 4, spaceBetween: 10 },
+                    }}
                 >
                     {
                         category ? category.map((cate) => (
@@ -142,7 +148,7 @@ export default DocumentPage;
 
 function DocumentCard({document}) {
     return (
-        <div className="col-span-3 p-4 grid gap-2 grid-rows-5 h-[310px] rounded-md overflow-hidden border border-gray-800 cursor-pointer">
+        <div className="md:col-span-3 col-span-6 p-2 grid gap-2 grid-rows-5 h-[310px] rounded-md overflow-hidden border border-gray-800 cursor-pointer">
             <div className="row-span-3 flex items-center">
                 {
                     document?.image ? <img src={document?.image} className='w-full h-full object-cover' /> : <img src='/default_img.png' className='w-full h-full object-cover' />

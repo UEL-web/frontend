@@ -79,7 +79,7 @@ function CourseCard({course}) {
     }
 
     return (
-        <div className="col-span-3 grid grid-rows-5 h-fit border border-gray-800 cursor-pointer">
+        <div className="md:col-span-3 col-span-12 grid grid-rows-5 h-fit border border-gray-800 cursor-pointer">
             <div className="row-span-3 flex items-center">
                 {
                     course?.course_img ? <img src={course?.course_img} className='w-full h-full object-cover' /> :

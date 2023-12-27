@@ -40,12 +40,12 @@ function CourseDetail() {
     }, [params.id])
 
   return (
-      <div className="container m-auto h-auto pt-10">
+      <div className="container m-auto h-auto pt-10 px-5 md:px-0">
             <section className="h-auto">
                 <Breadcrumbs />
             </section>
 
-          <section className='grid grid-cols-12 gap-5 pt-10'>
+          <section className='grid-cols-12 md:grid flex flex-col-reverse gap-5 pt-10'>
               {
                   loading ?
                       <div className='h-[800px] flex justify-center items-center col-span-12'>
@@ -53,7 +53,7 @@ function CourseDetail() {
                       </div>
                       : (
                         <>
-                            <div className='col-span-9 pr-5'>
+                            <div className='col-span-9 md:pr-5'>
                                 <div className='w-full border bg-gradient-to-r from-secondary to-[#F74986] p-1 rounded-3xl'>
                                     <div className='w-full h-full border rounded-2xl bg-white p-5 no-tailwindcss-base'>
                                         {
@@ -72,15 +72,15 @@ function CourseDetail() {
                                     }
                                 </div>
                             </div>
-                            <div className='col-span-3 text-white'>
-                                    <div className='grid-rows-5 w-full h-full'>
-                                        <div className='row-span-2 outline'>
+                            <div className='col-span-3 text-white '>
+                                    <div className='grid-rows-5 w-full h-full rounded border-gray-800 border'>
+                                        <div className='row-span-2'>
                                             {
-                                                course?.image ? <img src={course?.image} className='w-full h-full object-cover' /> :
+                                                course?.course_img ? <img src={course?.course_img} className='w-full h-full object-cover' /> :
                                                     <img src='/default_img.png' className='w-full h-full object-cover' />
                                             }
                                         </div>
-                                        <div className='row-span-3 outline px-2 py-3'>
+                                        <div className='md:row-span-3 px-2 py-3'>
                                             <p className='text-center pb-3 text-[#F74986] font-semibold'> {course?.name} </p>
                                             <div className='flex justify-between items-center py-2'>
                                                 <p className='text-base font-normal'>Lịch học</p>
@@ -117,8 +117,8 @@ function CourseDetail() {
                                                 <MdKeyboardArrowRight size={30} />
                                             </button>
                                         </div>
-                                        <p className='py-5 font-semibold text-[#5E54F3] text-center text-lg'> KHÓA HỌC TƯƠNG TỰ </p>
-                                        <div className='flex flex-col gap-4'>
+                                        <p className='py-5 hidden md:block font-semibold text-[#5E54F3] text-center text-lg'> KHÓA HỌC TƯƠNG TỰ </p>
+                                        <div className='md:flex flex-col gap-4 hidden'>
                                             {
                                                 course?.course_same?.map((course, index) => (
                                                     <CourseCard course={course} />
@@ -138,11 +138,12 @@ function CourseDetail() {
 export default CourseDetail;
 
 function CourseCard({course}) {
+
     return (
         <Link to={PATH.COURSE + "/" + course.slug} className="col-span-3 grid pb-1 grid-rows-4 border border-gray-800 cursor-pointer">
             <div className="row-span-3 flex items-center">
                 {
-                    course?.image ? <img src={course?.image} className='w-full h-full object-cover' /> :
+                    course?.course_img ? <img src={course?.course_img} className='w-full h-full object-cover' /> :
                         <img src='/default_img.png' className='w-full h-full object-cover' />
                 }
             </div>

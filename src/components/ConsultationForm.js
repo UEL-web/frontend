@@ -26,7 +26,7 @@ function ConsultationForm() {
   return (
       <Element name="contact" className="element">
         <div className='w-full outline p-7'>
-        <p className='text-3xl text-center font-bold uppercase'> Liên hệ với chúng tôi </p>
+        <p className='md:text-3xl text-xl  text-center font-bold uppercase'> Liên hệ với chúng tôi </p>
         <Form
             form={form}
             layout='vertical'
