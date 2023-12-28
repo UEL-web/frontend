@@ -36,14 +36,14 @@ export default function HomePageNew () {
     }, []);
 
     return (
-        <main className='container m-auto text-white h-auto mt-5'>
+        <main className=' m-auto text-white h-auto mt-5'>
             <section className='h-auto lg:px-20 lg:pb-20 p-2'>
                 <motion.div
                     variants={staggerContainer}
                     initial="hidden"
                     whileInView="show"
                     viewport={{ once: false, amount: 0.25 }}
-                    className='grid grid-cols-12 gap-5'
+                    className='grid grid-cols-12 gap-5 overflow-hidden'
                 >
                     <motion.div
                         variants={fadeIn('right', 'tween', 0.2, 0.5)}
@@ -90,7 +90,7 @@ export default function HomePageNew () {
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: false, amount: 0.25 }}
-                className='h-auto lg:p-20 p-2'
+                className='h-auto lg:p-20 p-2 overflow-hidden'
             >
                 <motion.h2
                     variants={textVariant2}
@@ -118,7 +118,7 @@ export default function HomePageNew () {
                     initial="hidden"
                     whileInView="show"
                     viewport={{ once: false, amount: 0.25 }}
-                    className='grid lg:grid-cols-2 grid-cols-1 lg:gap-10 gap-5'
+                    className='grid lg:grid-cols-2 grid-cols-1 lg:gap-10 gap-5 overflow-hidden'
                 >
                     <div className='col-span-1 w-full h-full flex flex-col justify-around items-center lg:order-1 order-last'>
                         <motion.div
@@ -208,7 +208,7 @@ export default function HomePageNew () {
                     initial="hidden"
                     whileInView="show"
                     viewport={{ once: false, amount: 0.25 }}
-                    className='grid lg:grid-cols-3 grid-cols-1 gap-10'
+                    className='grid lg:grid-cols-3 grid-cols-1 gap-10 overflow-hidden'
                 >
                     <motion.div
                         variants={fadeIn('left', 'tween', 0.2, 0.5)}
@@ -267,12 +267,13 @@ export default function HomePageNew () {
                     </motion.div>
                 </motion.div>
             </section>
+
             <motion.section
                 variants={staggerContainer}
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: false, amount: 0.25 }}
-                className='w-full h-auto lg:px-0 px-2'
+                className='w-full h-auto lg:px-0 px-2 overflow-hidden'
             >
                 <motion.div
                     variants={fadeIn('up', 'tween', 0.3, 0.5)}
@@ -328,7 +329,7 @@ export default function HomePageNew () {
                 </motion.div>
             </motion.section>
 
-            <section className='h-auto lg:px-20 px-2 py-20'>
+            <section className='h-auto lg:px-20 px-2 py-20 overflow-hidden'>
                 <p className='text-center lg:text-[60px] text-[48px] font-bold mb-5'>
                     Câu hỏi thường gặp
                 </p>
