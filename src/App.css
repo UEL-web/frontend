@@ -56,3 +56,27 @@
   /*border: 1px solid #F74986;*/
   background: linear-gradient(91deg, rgba(247, 73, 134, 0.49) 0%, rgba(94, 84, 243, 0.49) 100%);
 }
+
+@keyframes slide-bottom {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-bottom {
+  animation: slide-bottom 0.5s ease-in-out both;
+}
+
+.column-container {
+  transition: transform 0.3s ease-in-out; /* Hiệu ứng mượt */
+}
+
+.column-item {
+  transition: opacity 0.3s ease-in-out; /* Hiệu ứng mượt */
+}
+

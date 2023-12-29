@@ -10,38 +10,38 @@ export const imgTechList = [
 export const questionsList1 = [
     {
         question: 'Khóa học này dành cho ai?',
-        answer: ''
+        answer: 'Khóa học này dành cho những người quan tâm và muốn học về phân tích dữ liệu. Đối tượng học viên có thể bao gồm sinh viên, chuyên gia trong lĩnh vực dữ liệu, nhân viên công ty muốn nâng cao kiến thức về dữ liệu, hay bất kỳ ai quan tâm đến việc khai thác và phân tích dữ liệu.'
     },
     {
         question: 'Tôi cần có kiến thức gì trước khi tham gia khóa học?',
-        answer: ''
+        answer: 'Đối với khóa học này, một hiểu biết cơ bản về lập trình và các khái niệm cơ bản về dữ liệu sẽ rất hữu ích. Có kiến thức về ngôn ngữ lập trình như Python, R hoặc SQL cũng là một lợi thế. Tuy nhiên, khóa học có thể được thiết kế để phù hợp với mọi trình độ, vì vậy không cần phải có kiến thức sâu rộng trước khi tham gia.'
     },
     {
         question: 'Khóa học sẽ đào tạo những kỹ năng gì?',
-        answer: ''
+        answer: 'Khóa học này sẽ đào tạo cho bạn những kỹ năng cần thiết để làm việc với dữ liệu khoa học, bao gồm thu thập, tiền xử lý, phân tích và trực quan hóa dữ liệu. Bạn sẽ học các công cụ và kỹ thuật phổ biến trong lĩnh vực này như Python, R, công cụ phân tích dữ liệu và trực quan hóa dữ liệu.'
     },
     {
         question: 'Tôi cần bao nhiêu thời gian để hoàn thành khóa học?',
-        answer: ''
+        answer: 'Thời gian hoàn thành khóa học sẽ phụ thuộc vào nội dung và mức độ chi tiết của khóa học cụ thể. Tuy nhiên, thông thường, khóa học của chúng có thể kéo dài vài tuần, tùy thuộc vào khối lượng nội dung.'
     }
 ]
 
 export const questionsList2 = [
     {
         question: 'Sau khi hoàn thành khóa học, tôi có thể làm được gì?',
-        answer: ''
+        answer: 'Bạn sẽ có kiến thức về các công cụ phân tích dữ liệu, xử lý dữ liệu và trực quan hóa dữ liệu. Thêm vào đó các khóa học của chúng tôi sẽ giúp bạn vững vàng hơn trên con đường sự nghiệp của mình, với khả năng định hướng nghề nghiệp cao.'
     },
     {
         question: 'Khóa học có yêu cầu bằng cấp gì không?',
-        answer: ''
+        answer: 'Khóa học của chúng tôi không yêu cầu bằng cấp, phù hợp cho mọi trình độ.'
     },
     {
         question: 'Học phí của khóa học là bao nhiêu?',
-        answer: ''
+        answer: 'Học phí của khóa học khoảng từ 2 đến 7 triệu, tùy thuộc vào khối lượng nội dung và độ khó của kiến thức.'
     },
     {
         question: 'Khóa học có đảm bảo tuyển dụng không?',
-        answer: ''
+        answer: 'Khóa học của chúng tôi không đảm bảo tuyển dụng, tuy nhiên cam kết đem đến cho người học trải nghiệm học tập chuyên nghiệp, cung cấp đầy đủ kiến thức cho học viên trên con đường sự nghiệp với một số ngành nghề liên quan đến dữ liệu như: Data Analyst, Business Analyst, Data Engineer,...'
     },
 ]
 
