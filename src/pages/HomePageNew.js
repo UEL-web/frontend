@@ -16,7 +16,7 @@ import CardQuestion from "../components/home/CardQuestion";
 
 import { motion } from 'framer-motion';
 import {fadeIn, staggerContainer, textVariant2} from "../utils/motion";
-import {archiData, imgTechList, questionsList1, questionsList2} from "../constants/datahome";
+import {archiData, imgTechList, questionsList1, questionsList2, reviewList} from "../constants/datahome";
 import {useViewport} from "../hook/useViewport";
 
 export default function HomePageNew () {
@@ -130,7 +130,7 @@ export default function HomePageNew () {
                                     <p className='mb-1 text-[40px] font-bold'>
                                         01
                                     </p>
-                                    <p className='text-[18px] font-thin'>
+                                    <p className='lg:text-[22px] text-[18px] font-thin'>
                                         Có được kiến thức nền tảng về Data vững chắc: Analytix chú trọng chất lượng đào tạo, cập nhật thường xuyên giúp sinh viên luôn được tiếp cận với những kiến thức mới.
                                     </p>
                                 </div>
@@ -139,7 +139,7 @@ export default function HomePageNew () {
                                     <p className='mb-1 text-[40px] font-bold'>
                                         02
                                     </p>
-                                    <p className='text-[18px] font-thin'>
+                                    <p className='lg:text-[22px] text-[18px] font-thin'>
                                         Sinh viên sẽ được đào tạo từ cơ bản đến chuyên sâu về Data và Business Intelligence,  70% THỜI LƯỢNG HỌC THỰC HÀNH đáp ứng đúng nhu cầu doanh nghiệp.
                                     </p>
                                 </div>
@@ -150,7 +150,7 @@ export default function HomePageNew () {
                                     <p className='mb-1 text-[40px] font-bold'>
                                         03
                                     </p>
-                                    <p className='text-[18px] font-thin'>
+                                    <p className='lg:text-[22px] text-[18px] font-thin'>
                                         Được cung cấp chứng chỉ sau khi hoàn thành các khóa học.
                                     </p>
                                 </div>
@@ -159,7 +159,7 @@ export default function HomePageNew () {
                                     <p className='mb-1 text-[40px] font-bold'>
                                         04
                                     </p>
-                                    <p className='text-[18px] font-thin'>
+                                    <p className='lg:text-[22px] text-[18px] font-thin'>
                                         Được học tập và trao đổi thông qua các GIỜ HỌC DOANH NGHIỆP TRỰC TIẾP mà Analytix đã kết nối, giúp sinh viên có cái nhìn thực tế hơn.
                                     </p>
                                 </div>
@@ -168,7 +168,7 @@ export default function HomePageNew () {
                                     <p className='mb-1 text-[40px] font-bold'>
                                         05
                                     </p>
-                                    <p className='text-[18px] font-thin'>
+                                    <p className='lg:text-[22px] text-[18px] font-thin'>
                                         100% sinh viên được nhà tuyển dụng chào đón.
                                     </p>
                                 </div>
@@ -238,30 +238,36 @@ export default function HomePageNew () {
                                 modules={[Autoplay, Pagination, Navigation]}
                                 className="mySwiper"
                             >
-                                <SwiperSlide>
-                                    <CardFeedback
-                                        name='Nguyễn Thị Hồng'
-                                        student='Sinh viên Đại học Kinh tế-Luật'
-                                        content='Khóa học rất hay, mình đã học và áp dụng được nhiều kiến thức trong công việc. Cảm ơn Analytix rất nhiều.'
-                                        avatar='/avatar.png'
-                                    />
-                                </SwiperSlide>
-                                <SwiperSlide>
-                                    <CardFeedback
-                                        name='Nguyễn Thị Hồng'
-                                        student='Sinh viên Đại học Kinh tế-Luật'
-                                        content='Khóa học rất hay, mình đã học và áp dụng được nhiều kiến thức trong công việc. Cảm ơn Analytix rất nhiều.'
-                                        avatar='/avatar.png'
-                                    />
-                                </SwiperSlide>
-                                <SwiperSlide>
-                                    <CardFeedback
-                                        name='Nguyễn Thị Hồng'
-                                        student='Sinh viên Đại học Kinh tế-Luật'
-                                        content='Khóa học rất hay, mình đã học và áp dụng được nhiều kiến thức trong công việc. Cảm ơn Analytix rất nhiều.'
-                                        avatar='/avatar.png'
-                                    />
-                                </SwiperSlide>
+                                {reviewList.map((review, index) => {
+                                    return (
+                                        <SwiperSlide>
+                                            <CardFeedback
+                                                key={index}
+                                                name={review.name}
+                                                student='Sinh viên Đại học Kinh tế-Luật'
+                                                content={review.content}
+                                                avatar={review.avatar}
+                                            />
+                                        </SwiperSlide>
+                                    )
+                                })}
+
+                                {/*<SwiperSlide>*/}
+                                {/*    <CardFeedback*/}
+                                {/*        name='Nguyễn Thị Hồng'*/}
+                                {/*        student='Sinh viên Đại học Kinh tế-Luật'*/}
+                                {/*        content='Khóa học rất hay, mình đã học và áp dụng được nhiều kiến thức trong công việc. Cảm ơn Analytix rất nhiều.'*/}
+                                {/*        avatar='/avatar.png'*/}
+                                {/*    />*/}
+                                {/*</SwiperSlide>*/}
+                                {/*<SwiperSlide>*/}
+                                {/*    <CardFeedback*/}
+                                {/*        name='Nguyễn Thị Hồng'*/}
+                                {/*        student='Sinh viên Đại học Kinh tế-Luật'*/}
+                                {/*        content='Khóa học rất hay, mình đã học và áp dụng được nhiều kiến thức trong công việc. Cảm ơn Analytix rất nhiều.'*/}
+                                {/*        avatar='/avatar.png'*/}
+                                {/*    />*/}
+                                {/*</SwiperSlide>*/}
                             </Swiper>
                         </div>
                     </motion.div>

@@ -67,3 +67,31 @@ export const archiData = [
         number: 100
     },
 ]
+
+export const reviewList = [
+    {
+        avatar: '/NguyenBaoDuyen.jpeg',
+        name: 'Nguyễn Bảo Duyên',
+        content: 'Giảng viên Analytix rất nhiệt tình. Mình rất ấn tượng với cách trình bày dữ liệu trên Power BI và Data Storytelling.'
+    },
+    {
+        avatar: '/mangocxuanky.jpeg',
+        name: 'Ma Ngọc Xuân Kỳ',
+        content: 'AnalytiX là một môi trường rất thân thiện và phù hợp cho các bạn nào muốn đam với phân tích dữ liệu, mình đã học hỏi và cảm thấy rất hài lòng khi hoàn thành xong khóa học Power Bi foundation của AnalytiX.'
+    },
+    {
+        name: 'Nguyễn Phúc Dương Luân',
+        avatar: '/DuongLuan.jpeg',
+        content: 'Mình đã có một trải nghiệm rất tuyệt vời khi đăng ký tham gia khóa học Microsoft Power Fundamental của AnalytiX. Nếu như bạn là một nhà phân tích dữ liệu cơ bản, thì mình nghĩ đây sẽ là lựa chọn mà bạn không thể bỏ qua.'
+    },
+    {
+        name: 'Từ Thanh Hằng',
+        content: 'Điều đầu tiên sau khi mình hoàn thành khóa học Fundamental BA Skills là giới thiệu ngay lập tức tới bạn bè của mình bởi kiến thức bao hàm chi tiết, đầy đủ và cách tiếp cận tới phân tích kinh doanh mà khóa học này đem lại.',
+        avatar: '/TuThanhHang.png'
+    },
+    {
+        name: 'Định Thị Bé Nhân',
+        content: 'Mình thật may mắn khi đã sớm được biết tới AnalytiX là nơi đào tạo các nhà phân tích dữ liệu hàng đầu ở Việt Nam. Đã hơn 1 năm trôi qua từ khi mình kết thúc toàn bộ các khóa học, giờ đây mình đã đạt được thành công khi theo con đường sự nghiệp mình khao khát. Đối với mình AnalytiX sẽ luôn là một phần không thể thiếu trên mọi sự chọn của mình.',
+        avatar: '/DinhThiBeNhan.jpeg'
+    }
+]
