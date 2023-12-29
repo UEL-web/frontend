@@ -21,4 +21,5 @@ export const LABEL = {
     LOGIN: 'Đăng nhập',
     REGISTER: 'Đăng ký',
     BLOG: 'Blog',
+    PROFILE: 'Thông tin cá nhân',
 }

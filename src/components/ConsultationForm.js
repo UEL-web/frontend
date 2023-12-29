@@ -25,7 +25,7 @@ function ConsultationForm() {
 
   return (
       <Element name="contact" className="element">
-        <div className='w-full outline p-7'>
+        <div className='w-full border rounded-xl p-7'>
         <p className='md:text-3xl text-xl  text-center font-bold uppercase'> Liên hệ với chúng tôi </p>
         <Form
             form={form}

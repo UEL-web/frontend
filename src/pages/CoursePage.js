@@ -39,8 +39,8 @@ function CoursePage() {
             setTotalPage(res.total_page)
             setCategoryName(res.category)
         }).catch((err) => {
-            console.log(err)
-            navigate('/404')
+            if (err.response.status === 404) return navigate('/404')
+            setCourses([])
         })
     }, [params])
 
@@ -49,8 +49,8 @@ function CoursePage() {
             if (!res.success) return toast.error(res.message, toastConfig)
             setCategory(res.data)
         }).catch((err) => {
-            console.log(err)
-            navigate('/404')
+            if (err.response.status === 404) return navigate('/404')
+            setCategory([])
         })
     }, [])
 

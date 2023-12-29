@@ -16,19 +16,18 @@ function DocumentDetailPage () {
       if (!res.success) return toast.error(res.message, toastConfig)
       setDocument(res.data)
     }).catch((err) => {
-        console.log(err)
-        // navigate('/404')
+        if (err.response.status === 404) return navigate('/404')
     })
-  })
+  },[])
 
   return (
       <div className="container m-auto h-auto py-5">
-          <section className="h-auto py-2">
+          <section className="h-auto py-2 px-5 md:px-0">
               <Breadcrumbs />
           </section>
 
 
-          <section className='py-3'>
+          <section className='py-3 px-5 md:px-0'>
               <h1 className="text-4xl py-1 font-bold text-white"> {document?.name} </h1>
               {
                   document?.category?.map((category, index) => (
