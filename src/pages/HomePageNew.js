@@ -36,7 +36,7 @@ export default function HomePageNew () {
     }, []);
 
     return (
-        <main className=' m-auto text-white h-auto mt-5'>
+        <main className='max-w-[1512px] m-auto text-white h-auto mt-5'>
             <section className='h-auto lg:px-20 lg:pb-20 p-2'>
                 <motion.div
                     variants={staggerContainer}
@@ -273,7 +273,7 @@ export default function HomePageNew () {
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: false, amount: 0.25 }}
-                className='w-full h-auto lg:px-0 px-2 overflow-hidden'
+                className='w-full h-auto lg:px-20 px-2 overflow-hidden'
             >
                 <motion.div
                     variants={fadeIn('up', 'tween', 0.3, 0.5)}
