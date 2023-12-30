@@ -7,7 +7,7 @@ export default function CardFeedback ({ name, content, avatar, student }) {
                 <img
                     src={avatar}
                     alt=""
-                    className={`w-[150px] h-[150px] rounded object-cover`}
+                    className={`w-[150px] h-[150px] rounded-lg object-cover`}
                 />
 
                 <div className='flex flex-col justify-around items-start'>
@@ -36,8 +36,8 @@ export default function CardFeedback ({ name, content, avatar, student }) {
                     </div>
                 </div>
             </div>
-            <p className='lg:text-[30px] text-[20px] font-thin px-10 mb-10'>
-                Giảng viên Analytix rất nhiệt tình. Mình rất ấn tượng với cách trình bày dữ liệu trên Power BI và Data Storytelling.
+            <p className='lg:text-[22px] text-[20px] font-thin px-1 mb-10'>
+                {content}
             </p>
         </div>
     )
