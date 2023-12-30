@@ -1,16 +1,29 @@
-import {Button, Form, Input} from "antd";
+import {Button, Form, Input, Select} from "antd";
 import TextArea from "antd/es/input/TextArea";
 import { MdKeyboardArrowRight } from "react-icons/md";
-import {useState} from "react";
-import {createConsultationForm} from "../apis/api";
+import {useEffect, useState} from "react";
+import {createConsultationForm, getCourses} from "../apis/api";
 import {toast} from "react-toastify";
 import Loading from "./Loading";
 import {toastConfig} from "../config/toastConfig";
 import { Link, Element } from 'react-scroll';
+import {getQueryVariable} from "../utils/getQuery";
 
 function ConsultationForm() {
     const [form] = Form.useForm()
     const [loading, setLoading] = useState(false)
+    const [courses, setCourses] = useState(null)
+    const { Option } = Select
+
+    useEffect(() => {
+        setCourses(null)
+        getCourses(null, getQueryVariable('category')).then((res) => {
+            if (!res.success) return toast.error(res.message, toastConfig)
+            setCourses(res.data)
+        }).catch((err) => {
+            setCourses([])
+        })
+    }, [])
 
     const handleSubmit = (values) => {
         if (loading) return
@@ -71,11 +84,20 @@ function ConsultationForm() {
             <Form.Item
                 rules={[{ required: true, message: 'Hãy để lại tên khóa học bạn quan tâm' }]}
                 name='courseName'
-                style={{ marginBottom: '20px'}}
+                style={{ marginBottom: '20px', borderRadius: '0'}}
                 label={
                     <p style={{ fontWeight: 500, color: 'white' }}>Khóa học quan tâm</p>
                 }>
-                <Input placeholder="AWS SAA"  style={{ border: '1px solid black', borderRadius: '0', fontSize: '15px', padding: '7px' }} />
+                <Select
+                    loading={courses === null}
+                    style={{ border: '1px solid black', borderRadius: '0', outline: 'none', fontWeight: 500, fontSize: '15px'}}
+                >
+                    {courses?.map((item, index) => (
+                        <Option key={index}
+                                style={{ fontWeight: 500, fontSize: '15px'}}
+                                value={item.id}>{item.name}</Option>
+                    ))}
+                </Select>
             </Form.Item>
 
             <Form.Item

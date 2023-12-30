@@ -7,6 +7,7 @@ import {toast} from "react-toastify";
 import {toastConfig} from "../config/toastConfig";
 import Loading from "../components/Loading";
 import { Link as LinkScroll } from 'react-scroll';
+import BANNER from "../constants/banners";
 
 function TeacherPage() {
     const [teachers, setTeachers] = useState(null)
@@ -36,22 +37,14 @@ function TeacherPage() {
 
   return (
       <div className="container m-auto h-auto text-white px-5 md:px-0">
-          <section className="h-auto my-10 md:my-20 flex flex-col gap-5">
-              <h1 className="md:text-4xl text-2xl font-bold py-2"> CHUYÊN GIA CỦA CHÚNG TÔI </h1>
-              <p className='md:w-1/2 w-full'>
-                  Giảng viên tại Analytics là những người có ít nhất 5 năm kinh nghiệm trong lĩnh vực Data.
-                  Giảng viên vừa trực tiếp làm việc tại các doanh nghiệp vừa song song giảng dạy tại Analytics.
-                  Vì vậy, sinh viên Analytics sẽ được tiếp cận những kiến thức và nhu cầu thực tế nhất của ngành.
-              </p>
-
-              <div className='w-fit md:pt-5 pt-2 flex justify-center cursor-pointer'>
-                  <LinkScroll to="contact" spy={true} smooth={true} duration={500}>
-                      <div className='text-white md:py-2 md:px-4 py-1 px-2 flex justify-center items-center rounded bg-gradient-to-r from-[#5E54F3] to-[#F74986]'>
-                          <p className='md:text-xl text-xs font-medium'> Đăng kí tư vấn ngay </p>
-                          <MdKeyboardArrowRight size={30} />
-                      </div>
-                  </LinkScroll>
-              </div>
+          <section className="h-auto relative">
+              <img src={BANNER.TEACHER}/>
+              <LinkScroll className='absolute hidden md:block md:bottom-10 md:left-[40px] bottom-2 left-[10px] cursor-pointer' to="contact" spy={true} smooth={true} duration={500}>
+                  <div className='text-white cursor-pointer md:py-2 md:px-4 py-1 px-2 flex justify-center items-center rounded bg-gradient-to-r from-[#5E54F3] to-[#F74986]'>
+                      <p className='md:text-xl text-xs font-medium'> Đăng kí tư vấn ngay </p>
+                      <MdKeyboardArrowRight size={30} />
+                  </div>
+              </LinkScroll>
           </section>
 
           <section className="h-auto py-1">
