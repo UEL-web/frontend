@@ -336,11 +336,11 @@ export default function HomePageNew () {
                 </motion.div>
             </motion.section>
 
-            <section className='h-auto lg:px-0 px-2 py-20 overflow-hidden'>
+            <section className='relative lg:h-[620px] h-auto lg:px-0 px-2 py-20 overflow-hidden'>
                 <p className='text-center lg:text-[60px] text-[48px] font-bold mb-5'>
                     Câu hỏi thường gặp
                 </p>
-                <div className='w-full h-auto grid lg:grid-cols-2 grid-cols-1 lg:gap-10 gap-0 mb-10'>
+                <div className='absolute h-[300px] w-full grid lg:grid-cols-2 grid-cols-1 lg:gap-10 gap-0 mb-10'>
                     <div className='col-span-1 transition ease-in-out delay-150 duration-1000 column-container relative'>
                         {questionsList1.map((question, index) => (
                             <CardQuestion
