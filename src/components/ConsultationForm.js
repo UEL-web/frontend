@@ -104,9 +104,10 @@ function ConsultationForm() {
                 ]}
                 style={{ marginBottom: '20px'}}
                 label={
-                <p style={{ fontWeight: 500, color: 'white' }}>Email                         <span style={{ color: 'red' }}>*</span>
-                </p>
-            }>
+                <p style={{ fontWeight: 500, color: 'white' }}>Email
+                    <span style={{ color: 'red' }}>*</span>
+                </p>}
+            >
                 <Input placeholder="abc@gmail.com"  style={{ border: '1px solid black', borderRadius: '0', fontSize: '15px', padding: '7px' }} />
             </Form.Item>
 

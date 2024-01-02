@@ -45,6 +45,7 @@ function LoginPage() {
                       layout='vertical'
                       style={{ width: '100%', color:'white' }}
                       form={form}
+                      requiredMark={false}
                       name='form-login'
                       initialValues={{
                           username: '',
@@ -54,7 +55,11 @@ function LoginPage() {
                   >
                       <Form.Item
                           rules={[{ required: true, message: 'Hãy cung cấp tài khoản của bạn' }]}
-                          label='Tài khoản' name='username'
+                          label={
+                              <p style={{ fontWeight: 500}}>Username
+                                  <span style={{ color: 'red' }}>*</span>
+                              </p>
+                          }                          name='username'
                           style={{ marginBottom: '15px', color: 'white'  }}
                           labelCol={{ span: 24, style: { paddingBottom: 0, fontWeight: 500 } }}
                       >
@@ -62,7 +67,11 @@ function LoginPage() {
                       </Form.Item>
                       <Form.Item
                           rules={[{ required: true, message: 'Hãy cung cấp mật khẩu của bạn' }]}
-                          label='Mật khẩu'
+                          label={
+                              <p style={{ fontWeight: 500}}>Password
+                                  <span style={{ color: 'red' }}>*</span>
+                              </p>
+                          }
                           name='password'
                           labelCol={{ span: 24, style: { paddingBottom: 0, fontWeight: 500 } }}
                       >
