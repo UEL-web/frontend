@@ -340,8 +340,8 @@ export default function HomePageNew () {
                 <p className='text-center lg:text-[60px] text-[48px] font-bold mb-5'>
                     Câu hỏi thường gặp
                 </p>
-                <div className='w-full h-auto grid lg:grid-cols-2 grid-cols-1 lg:gap-10 gap-0'>
-                    <div className='col-span-1 transition ease-in-out delay-150 duration-1000 column-container'>
+                <div className='w-full h-auto grid lg:grid-cols-2 grid-cols-1 lg:gap-10 gap-0 mb-10'>
+                    <div className='col-span-1 transition ease-in-out delay-150 duration-1000 column-container relative'>
                         {questionsList1.map((question, index) => (
                             <CardQuestion
                                 key={index}

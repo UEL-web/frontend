@@ -22,7 +22,7 @@ export default function CardQuestion ({ question, answer }) {
                     {!open ? <HiPlus /> : <HiMinus />}
                 </span>
             </p>
-            {open && <p className='p-4 rounded-[14px] border-[#F74986] border-[1px] text-white bg-transparent hover:text-black hover:bg-white transition duration-100 ease-in-out mt-1 animate-slide-bottom'>
+            {open && <p className='absolute bg-black p-4 rounded-[14px] border-[#F74986] border-[1px] text-white hover:text-black hover:bg-white transition duration-100 ease-in-out mt-1 animate-slide-bottom z-50'>
                 Trả lời: {answer}
             </p>}
         </div>
