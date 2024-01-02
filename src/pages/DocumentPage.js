@@ -163,7 +163,7 @@ function DocumentCard({document}) {
                         </span>
                     ))
                 }
-                <div className='overflow-y-auto relative'>
+                <div className='min-h-[40px] overflow-y-auto relative'>
                     <Link to={PATH.DOCUMENT + "/" + document.slug} className='line-clamp-2 font-semibold hover:text-secondary leading-5'>{document?.name}</Link>
                 </div>
             <Link to={PATH.DOCUMENT + "/" + document.slug} className='w-fit m-auto text-white bg-[#5E54F3] rounded-full px-3 py-1'>Xem ngay</Link>
