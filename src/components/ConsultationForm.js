@@ -15,6 +15,14 @@ function ConsultationForm() {
     const [courses, setCourses] = useState(null)
     const { Option } = Select
 
+    const handleInput = (e) => {
+        // Loại bỏ tất cả các ký tự không phải số từ giá trị nhập vào
+        const numericValue = e.target.value.replace(/[^0-9]/g, '');
+
+        // Cập nhật giá trị của input
+        e.target.value = numericValue;
+    };
+
     useEffect(() => {
         setCourses(null)
         getCourses(null, getQueryVariable('category')).then((res) => {
@@ -44,7 +52,7 @@ function ConsultationForm() {
             form={form}
             layout='vertical'
             style={{ marginTop: '30px' }}
-            requiredMark={true}
+            requiredMark={false}
             onFinish={handleSubmit}
         >
             <Form.Item
@@ -52,7 +60,8 @@ function ConsultationForm() {
 
                 style={{ marginBottom: '0px'}}
                label={
-                       <p style={{ fontWeight: 500, color: 'white' }}>Họ và tên</p>
+                       <p style={{ fontWeight: 500, color: 'white' }}>Họ và tên                        <span style={{ color: 'red' }}>*</span>
+                       </p>
                }
             >
                 <Form.Item
@@ -61,7 +70,7 @@ function ConsultationForm() {
                     rules={[
                         {
                             required: true,
-                            message: 'Please input your username!',
+                            message: 'Vui lòng nhập họ của bạn!',
                         },
                     ]}
                 >
@@ -73,7 +82,7 @@ function ConsultationForm() {
                     rules={[
                         {
                             required: true,
-                            message: 'Please input your username!',
+                            message: 'Vui lòng nhập tên của bạn!',
                         },
                     ]}
                 >
@@ -83,20 +92,34 @@ function ConsultationForm() {
 
             <Form.Item
                 name='email'
-                rules={[{ required: true, message: 'Hãy để lại email của bạn' }]}
+                rules={[
+                    {
+                        type: 'email',
+                        message: 'E-mail không hợp lệ!',
+                    },
+                    {
+                        required: true,
+                        message: 'Vui lòng cung cấp E-mail!',
+                    },
+                ]}
                 style={{ marginBottom: '20px'}}
                 label={
-                <p style={{ fontWeight: 500, color: 'white' }}>Email</p>
+                <p style={{ fontWeight: 500, color: 'white' }}>Email                         <span style={{ color: 'red' }}>*</span>
+                </p>
             }>
                 <Input placeholder="abc@gmail.com"  style={{ border: '1px solid black', borderRadius: '0', fontSize: '15px', padding: '7px' }} />
             </Form.Item>
 
             <Form.Item
-                rules={[{ required: true, message: 'Hãy để lại số điện thoại của bạn' }]}
+                rules={[{ required: true, message: 'Hãy để lại số điện thoại của bạn',
+                }]}
                 name='phoneNumber'
+                onInput={handleInput}
                 style={{ marginBottom: '20px'}}
                 label={
-                    <p style={{ fontWeight: 500, color: 'white' }}>Số điện thoại</p>
+                    <p style={{ fontWeight: 500, color: 'white' }}>Số điện thoại
+                        <span style={{ color: 'red' }}>*</span>
+                    </p>
                 }>
                 <Input placeholder="xxx xxx xxx"  style={{ border: '1px solid black', borderRadius: '0', fontSize: '15px', padding: '7px' }} />
             </Form.Item>
@@ -106,7 +129,8 @@ function ConsultationForm() {
                 name='courseName'
                 style={{ marginBottom: '20px', borderRadius: '0'}}
                 label={
-                    <p style={{ fontWeight: 500, color: 'white' }}>Khóa học quan tâm</p>
+                    <p style={{ fontWeight: 500, color: 'white' }}>Khóa học quan tâm                         <span style={{ color: 'red' }}>*</span>
+                    </p>
                 }>
                 <Select
                     loading={courses === null}

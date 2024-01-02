@@ -521,7 +521,6 @@ const MenuButtonDiv = styled.div`
     py-1
     inline-flex
     rounded
-    hover:underline
     text-base
     items-center
     
