@@ -43,7 +43,7 @@ function ProfilePage () {
                 <div className='mx-auto w-fit p-5 flex-col flex justify-center items-center'>
                     <div className='h-32 w-32 border rounded-full'>
                     </div>
-                    <p className='text-xl font-semibold pt-3'>Ha Phan Bao Minh</p>
+                    <p className='text-xl font-semibold pt-3'>{`${user.lastName} ${user.firstName}`}</p>
                 </div>
 
                 <div className='pt-3'>

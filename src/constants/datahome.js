@@ -42,7 +42,7 @@ export const questionsList2 = [
     {
         question: 'Khóa học có đảm bảo tuyển dụng không?',
         answer: 'Khóa học của chúng tôi không đảm bảo tuyển dụng, tuy nhiên cam kết đem đến cho người học trải nghiệm học tập chuyên nghiệp, cung cấp đầy đủ kiến thức cho học viên trên con đường sự nghiệp với một số ngành nghề liên quan đến dữ liệu như: Data Analyst, Business Analyst, Data Engineer,...'
-    },
+    }
 ]
 
 export const archiData = [
