@@ -20,7 +20,6 @@ import {archiData, imgTechList, questionsList1, questionsList2, reviewList} from
 import {useViewport} from "../hook/useViewport";
 
 export default function HomePageNew () {
-    const viewPort = useViewport();
     // console.log(viewPort)
 
     const sliderRef = useRef(null);
@@ -37,7 +36,7 @@ export default function HomePageNew () {
 
     return (
         <main className='max-w-7xl mx-auto m-auto text-white h-auto mt-5'>
-            <section className='h-auto lg:pb-20'>
+            <section className='h-auto lg:pb-20 px-2 lg:px-0'>
                 <motion.div
                     variants={staggerContainer}
                     initial="hidden"
@@ -296,8 +295,8 @@ export default function HomePageNew () {
                             ref={sliderRef}
                             spaceBetween={0}
                             breakpoints={{
-                                320: { slidesPerView: 2, spaceBetween: 5 },
-                                480: { slidesPerView: 2, spaceBetween: 0 },
+                                320: { slidesPerView: 1, spaceBetween: 0 },
+                                480: { slidesPerView: 1, spaceBetween: 0 },
                                 768: { slidesPerView: 3, spaceBetween: 0 },
                                 1024: { slidesPerView: 4, spaceBetween: 5 },
                             }}
@@ -340,7 +339,7 @@ export default function HomePageNew () {
                 <p className='text-center lg:text-[60px] text-[48px] font-bold mb-5'>
                     Câu hỏi thường gặp
                 </p>
-                <div className='absolute h-[300px] w-full grid lg:grid-cols-2 grid-cols-1 lg:gap-10 gap-0 mb-10'>
+                <div className='lg:absolute lg:h-[300px] h-auto w-full grid lg:grid-cols-2 grid-cols-1 lg:gap-10 gap-0 lg:mb-10'>
                     <div className='col-span-1 transition ease-in-out delay-150 duration-1000 column-container relative'>
                         {questionsList1.map((question, index) => (
                             <CardQuestion
