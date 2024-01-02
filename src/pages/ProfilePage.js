@@ -124,7 +124,6 @@ function ProfilePage () {
                             </div>
                         </Form.Item>
                     </Form>
-
                 </div>
             </div>
       </div>
