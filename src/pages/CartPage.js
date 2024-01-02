@@ -41,7 +41,7 @@ function CartPage() {
     }, [cart])
 
     return (
-    <div className="container m-auto h-auto text-white py-10">
+    <div className="container max-w-7xl mx-auto m-auto h-auto text-white py-10">
       <h1 className='text-5xl font-semibold'>Giỏ hàng</h1>
 
         <div className='py-3 grid grid-cols-12 gap-4' >

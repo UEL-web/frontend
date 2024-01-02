@@ -98,7 +98,7 @@ function BlogPage () {
               </Swiper>
           </section>
 
-        <div className="container m-auto text-white h-auto py-5">
+        <div className="container max-w-7xl mx-auto m-auto text-white h-auto py-5">
 
         <section className='h-fit'>
           <p className='text-secondary font-bold text-3xl'>MỚI NHẤT</p>

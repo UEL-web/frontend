@@ -12,16 +12,17 @@ TimeAgo.addDefaultLocale(vi)
 
 // Create formatter (English).
 const timeAgo = new TimeAgo('vi-VN')
-function PolicyPage(){
-    const { id } = useParams();
-    const navigate = useNavigate();
-
+function PolicyPage01(){
+    useEffect(() => {
+        // 👇️ scroll to top on page load
+        window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+    }, []);
     return (
-        <div className="container m-auto text-white h-auto py-5">
-            <div className='py-3 border-t border-secondary'>
+        <div className="container max-w-7xl mx-auto m-auto text-white h-auto py-5">
+            <div className='py-3 px-5 md:px-5 border-t border-secondary'>
                 <p className="text-3xl font-semibold"> CHÍNH SÁCH VÀ QUY ĐỊNH CHUNG </p>
             </div>
-            <div className="grid grid-cols-12 gap-4 h-auto">
+            <div className="md:grid flex flex-col grid-cols-12 gap-4 h-auto">
                 <div className='col-span-9 p-5 no-tailwindcss-base'>
                     <p><strong>I. NGUY&Ecirc;N TẮC CHUNG</strong><br />
                         <br />
@@ -76,7 +77,7 @@ function PolicyPage(){
                 <div className='col-span-3 '>
                     <div className='col-span-4 p-4  border border-gray-800 h-auto'>
                         <p className='text-secondary font-bold text-xl border-b border-gray-500'>Nên đọc</p>
-                        <div className='col-span-4 gap-5 grid grid-rows-5 py-2'>
+                        <div className='col-span-4 h-fit gap-5 flex flex-col py-2'>
                             <SuggestBlogs/>
                         </div>
                     </div>
@@ -87,4 +88,4 @@ function PolicyPage(){
 
 }
 
-export default PolicyPage;
+export default PolicyPage01;

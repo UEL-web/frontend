@@ -11,12 +11,12 @@ function Footer() {
   return (
     <footer className='text-white m-auto mt-10'>
         <div className='grid-cols-12 gap-5 grid h-full bg-gradient-to-r from-[#9966FF] to-[#5E54F3] p-5 py-12'>
-            <div className='md:col-span-3 col-span-6 h-full flex gap-5 flex-col justify-center items-center'>
-                <Logo className='text-gray-800 h-24 w-fit' />
+            <div className='md:col-span-3 col-span-12 h-full flex gap-5 flex-col justify-center items-center'>
+                <Logo className='text-gray-800 h-20 w-fit' />
                 <p className='text-black text-base font-medium'>Expertise - Excellence - Exploration</p>
             </div>
 
-            <div className='md:col-span-3 col-span-6 flex flex-col gap-2'>
+            <div className='md:col-span-3 col-span-12 flex flex-col gap-2'>
                 <p className='text-black text-lg font-bold'> Thông tin liên hệ </p>
                 <p className='text-base font-normal text-white'>
                     <MdOutlineLocalPhone size={20} className='inline-block mr-2 text-red-500' />
@@ -40,28 +40,24 @@ function Footer() {
                             <FaFacebookF size={20} className='inline-block text-red-500' />
                         </span>
                     </Link>
-                    <Link to={CONTACTS.ZALO} target='_blank'>
-                        <span className='p-3 rounded-full border w-fit flex justify-center items-center cursor-pointer'>
-                            <SiZalo size={20} className='inline-block text-red-500' />
-                        </span>
-                    </Link>
+
                 </div>
 
             </div>
 
             <div className='md:col-span-3 col-span-6 flex flex-col gap-2'>
                 <p className='text-black text-lg font-bold'> Quy định và chính sách </p>
-                <Link to='/policy' className='hover:underline'>
+                <Link to='/policy-1' className='hover:underline'>
                     <LuDot size={20} className='inline-block text-red-500' />
                     <span className='text-base font-normal text-white'> Chính sách & quy định chung </span>
                 </Link>
 
-                <Link to='/policy' className='hover:underline'>
+                <Link to='/policy-2' className='hover:underline'>
                     <LuDot size={20} className='inline-block text-red-500' />
                     <span className='text-base font-normal text-white'> Chính sách và quyền riêng tư </span>
                 </Link>
 
-                <Link to='/policy' className='hover:underline'>
+                <Link to='/policy-3' className='hover:underline'>
                     <LuDot size={20} className='inline-block text-red-500' />
                     <span className='text-base font-normal text-white'> Chính sách bảo mật thông tin </span>
                 </Link>
@@ -76,7 +72,7 @@ function Footer() {
 
                 <Link to='/' className='hover:underline'>
                     <LuDot size={20} className='inline-block text-red-500' />
-                    <span className='text-base font-normal text-white'> Thành tựu ấn tuượng </span>
+                    <span className='text-base font-normal text-white'> Thành tựu ấn tượng </span>
                 </Link>
             </div>
         </div>

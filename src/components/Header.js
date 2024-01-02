@@ -274,7 +274,7 @@ function Header() {
                                     </Menu>
                                 ) : (
                                     <nav className='items-center w-fit'>
-                                        <div className='bg-secondary'>
+                                        <div className='bg-secondary rounded'>
                                             <NavButton href='/login/'>
                                                 {LABEL.LOGIN}
                                             </NavButton>
@@ -298,7 +298,7 @@ function Header() {
                             {
                                  !user
                                         ? <nav className='lg:hidden items-center flex justify-end ml-auto'>
-                                            <div className='bg-secondary border-black border-2 font-semibold active:font-semibold active:outline-dashed'>
+                                            <div className='bg-secondary rounded border-black border-2 font-semibold active:font-semibold active:outline-dashed'>
                                                 <NavButton href='/login/'>
                                                     {LABEL.LOGIN}
                                                 </NavButton>
@@ -501,7 +501,6 @@ const MenuButton = styled(Link)`
     py-1
     md:inline-flex
     rounded
-    hover:underline
     text-base
     md:text-white
     text-gray-800
@@ -510,7 +509,6 @@ const MenuButton = styled(Link)`
   &.active {
     ${tw`
       font-semibold
-      underline
       text-secondary
     `}
   }

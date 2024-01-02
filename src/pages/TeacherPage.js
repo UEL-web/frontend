@@ -36,9 +36,9 @@ function TeacherPage() {
     }
 
   return (
-      <div className="container m-auto h-auto text-white px-5 md:px-0">
+      <div className="container max-w-7xl mx-auto m-auto h-auto text-white px-5 md:px-0">
           <section className="h-auto relative">
-              <img src={BANNER.TEACHER}/>
+              <img src={BANNER.TEACHER} className='w-full'/>
               <LinkScroll className='absolute hidden md:block md:bottom-10 md:left-[40px] bottom-2 left-[10px] cursor-pointer' to="contact" spy={true} smooth={true} duration={500}>
                   <div className='text-white cursor-pointer md:py-2 md:px-4 py-1 px-2 flex justify-center items-center rounded bg-gradient-to-r from-[#5E54F3] to-[#F74986]'>
                       <p className='md:text-xl text-xs font-medium'> Đăng kí tư vấn ngay </p>
@@ -79,11 +79,11 @@ export default TeacherPage;
 
 function TeacherCard({teacher}) {
     return (
-        <div className="md:col-span-3 col-span-6 grid grid-rows-6 md:h-[500px] h-[350px] w-full cursor-pointer group">
+        <div className="md:col-span-4 col-span-6 grid grid-rows-6 md:h-[550px] h-[350px] w-full cursor-pointer group">
             <div className="row-span-5 flex items-center w-full">
                 {
-                    teacher?.avatar ? <img src={teacher?.avatar} className='w-full h-full' /> :
-                        <img src='/default_img.png' className='w-full h-full' />
+                    teacher?.avatar ? <img src={teacher?.avatar} className='w-full h-full rounded' /> :
+                        <img src='/default_img.png' className='w-full h-full rounded' />
                 }
             </div>
 

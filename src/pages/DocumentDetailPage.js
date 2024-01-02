@@ -5,6 +5,7 @@ import {toast} from "react-toastify";
 import {toastConfig} from "../config/toastConfig";
 import parse from "html-react-parser";
 import Breadcrumbs from "../components/Breadcrumbs";
+import {PATH} from "../constants/paths";
 
 function DocumentDetailPage () {
   const params = useParams()
@@ -21,9 +22,9 @@ function DocumentDetailPage () {
   },[])
 
   return (
-      <div className="container m-auto h-auto py-5">
+      <div className="container max-w-7xl mx-auto m-auto h-auto py-5">
           <section className="h-auto py-2 px-5 md:px-0">
-              <Breadcrumbs />
+              <Breadcrumbs path1="Tài liệu" path2={document?.name} link='/document' />
           </section>
 
 

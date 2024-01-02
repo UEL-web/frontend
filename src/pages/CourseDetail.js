@@ -12,6 +12,7 @@ import {toastConfig} from "../config/toastConfig";
 import parse from 'html-react-parser';
 import {useDispatch} from "react-redux";
 import {addToCart} from "../redux-action/cartAction";
+import {BASE_URL} from "../constants/api";
 
 function CourseDetail() {
     const [loading, setLoading] = useState(false)
@@ -40,9 +41,9 @@ function CourseDetail() {
     }, [params.id])
 
   return (
-      <div className="container m-auto h-auto pt-10 px-5 md:px-0">
+      <div className="container max-w-7xl mx-auto m-auto h-auto pt-10 px-5 md:px-0">
             <section className="h-auto">
-                <Breadcrumbs />
+                <Breadcrumbs link='/course' path1='Khóa học' path2={course?.name} />
             </section>
 
           <section className='grid-cols-12 md:grid flex flex-col-reverse gap-5 pt-10'>
@@ -143,7 +144,7 @@ function CourseCard({course}) {
         <Link to={PATH.COURSE + "/" + course.slug} className="col-span-3 grid pb-1 grid-rows-4 border border-gray-800 cursor-pointer">
             <div className="row-span-3 flex items-center">
                 {
-                    course?.course_img ? <img src={course?.course_img} className='w-full h-full object-cover' /> :
+                    course?.course_img ? <img src={BASE_URL + course?.course_img} className='w-full h-full object-cover' /> :
                         <img src='/default_img.png' className='w-full h-full object-cover' />
                 }
             </div>

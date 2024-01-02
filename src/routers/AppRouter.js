@@ -21,7 +21,9 @@ import DocumentDetailPage from "../pages/DocumentDetailPage";
 import BlogDetailPage from "../pages/BlogDetailPage";
 import HomePageNew from "../pages/HomePageNew";
 import NotFoundPage from "../pages/NotFoundPage";
-import PolicyPage from "../pages/PolicyPage";
+import PolicyPage01 from "../pages/PolicyPage01";
+import PolicyPage03 from "../pages/PolicyPage03";
+import PolicyPage02 from "../pages/PolicyPage02";
 
 
 export default function AppRouter() {
@@ -102,10 +104,26 @@ export default function AppRouter() {
                 </Suspense>
             } />
 
-            <Route path='/policy' element={
+            <Route path='/policy-1' element={
                 <Suspense fallback={<Loading />}>
                     <MainLayout>
-                        <PolicyPage />
+                        <PolicyPage01 />
+                    </MainLayout>
+                </Suspense>
+            } />
+
+            <Route path='/policy-2' element={
+                <Suspense fallback={<Loading />}>
+                    <MainLayout>
+                        <PolicyPage02 />
+                    </MainLayout>
+                </Suspense>
+            } />
+
+            <Route path='/policy-3' element={
+                <Suspense fallback={<Loading />}>
+                    <MainLayout>
+                        <PolicyPage03 />
                     </MainLayout>
                 </Suspense>
             } />

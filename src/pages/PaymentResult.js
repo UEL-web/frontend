@@ -4,7 +4,7 @@ import { CiCircleCheck } from "react-icons/ci";
 
 function PaymentResult() {
   return (
-      <div className="container m-auto h-auto text-white py-10">
+      <div className="container max-w-7xl mx-auto m-auto h-auto text-white py-10">
         <div className="min-h-[500px] flex items-center justify-center">
             <div className="bg-white p-8 rounded shadow-md">
                 <div className="flex justify-center items-center">

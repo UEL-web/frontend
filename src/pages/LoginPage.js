@@ -37,7 +37,7 @@ function LoginPage() {
     }
 
   return (
-      <div className='container mx-auto'>
+      <div className='container mx-auto max-w-7xl mx-auto'>
           <div className='grid grid-cols-12 py-5 min-w-fit w-[400px] m-auto mt-3 bg-white rounded'>
               <div className='col-span-12 px-4 h-[550px] flex flex-col items-center justify-start gap-3'>
                   <h1 className='text-xl pt-5 pb-2 font-semibold text-secondary'>Đăng nhập</h1>

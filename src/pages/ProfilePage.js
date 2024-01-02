@@ -37,7 +37,7 @@ function ProfilePage () {
     }
 
   return (
-  <div className="container m-auto text-white h-auto pt-10">
+  <div className="container max-w-7xl mx-auto m-auto text-white h-auto pt-10">
       <div className='md:grid flex flex-col grid-cols-12 h-full'>
             <div className='col-span-3 border border-gray-800'>
                 <div className='mx-auto w-fit p-5 flex-col flex justify-center items-center'>

@@ -1,7 +1,7 @@
 
 function NotFoundPage() {
   return (
-      <div className="container m-auto h-auto pt-10 text-white">
+      <div className="container max-w-7xl mx-auto m-auto h-auto pt-10 text-white">
           <h1 className="text-5xl font-bold text-center py-32">
               <p>404 - Not Found!</p>
           </h1>

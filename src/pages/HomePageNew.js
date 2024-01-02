@@ -36,7 +36,7 @@ export default function HomePageNew () {
     }, []);
 
     return (
-        <main className='max-w-[1512px] m-auto text-white h-auto mt-5'>
+        <main className='max-w-7xl mx-auto m-auto text-white h-auto mt-5'>
             <section className='h-auto lg:px-20 lg:pb-20 p-2'>
                 <motion.div
                     variants={staggerContainer}

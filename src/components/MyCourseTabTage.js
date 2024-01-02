@@ -14,8 +14,6 @@ function MyCourseTabTage() {
                       {"border-b-4 text-white":location.pathname.split('/')[2] === "learning"})}>
                       Tất cả khóa học
                   </Link>
-                  <Link to='/' className="py-2 hover:text-white cursor-pointer">Khóa học đã lưu</Link>
-                  <Link to='/' className="py-2 hover:text-white cursor-pointer">Tài liệu</Link>
               </div>
           </div>
       </div>

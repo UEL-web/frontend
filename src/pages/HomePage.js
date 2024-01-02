@@ -47,7 +47,7 @@ function HomePage() {
     }
 
   return (
-    <div className="container m-auto h-auto text-white">
+    <div className="container max-w-7xl mx-auto m-auto h-auto text-white">
         <section className="h-auto">
           <img src={BANNER.HOME}/>
         </section>

@@ -10,12 +10,14 @@ import reducers from "./redux/reducer";
 import {thunk} from "redux-thunk";
 import {Provider} from "react-redux";
 import {Link as LinkScroll} from "react-scroll";
+import MessengerChat from "./components/MessengerChat";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const store = createStore(reducers, applyMiddleware(thunk));
 
 root.render(
   <>
+      <MessengerChat />
     <Provider store={store}>
         <IndexRouter />
         <ToastContainer />
@@ -24,7 +26,7 @@ root.render(
             type="button"
             data-te-ripple-init={true}
             data-te-ripple-color="light"
-            className="!fixed bg-secondary bottom-5 right-5 rounded-full block p-3 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:opacity-70 active:shadow-lg"
+            className="!fixed bg-secondary z-10 bottom-[90px] right-[25px] rounded-full block p-5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:opacity-70 active:shadow-lg"
             id="btn-back-to-top">
             <svg
                 aria-hidden="true"

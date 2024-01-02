@@ -43,7 +43,7 @@ function MyCoursesPage() {
     }
 
     return (
-       <div className="container m-auto text-white h-auto mt-5">
+       <div className="container max-w-7xl mx-auto m-auto text-white h-auto mt-5">
            <section className="h-auto">
                <div className="grid grid-cols-12 gap-5">
                    {

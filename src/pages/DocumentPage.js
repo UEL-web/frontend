@@ -66,10 +66,10 @@ function DocumentPage() {
 
     return (
     <div>
-        <div className="container m-auto h-auto text-white">
-            <section className="h-auto relative">
-                <img src={BANNER.HOME}/>
-                <LinkScroll className='absolute hidden md:block md:bottom-10 md:left-[158px] bottom-2 left-[10px] cursor-pointer' to="contact" spy={true} smooth={true} duration={500}>
+        <div className="container m-auto max-w-7xl mx-auto h-auto text-white px-5 md:px-0">
+            <section className="h-auto relative z-0 w-full">
+                <img src={BANNER.DOCUMENT} className='w-full'/>
+                <LinkScroll className='absolute hidden md:block md:bottom-10 md:left-[12.5%] bottom-2 left-[10px] cursor-pointer' to="contact" spy={true} smooth={true} duration={500}>
                     <div className='text-white cursor-pointer md:py-2 md:px-4 py-1 px-2 flex justify-center items-center rounded bg-gradient-to-r from-[#5E54F3] to-[#F74986]'>
                         <p className='md:text-xl text-xs font-medium'> Đăng kí tư vấn ngay </p>
                         <MdKeyboardArrowRight size={30} />
@@ -148,8 +148,8 @@ export default DocumentPage;
 
 function DocumentCard({document}) {
     return (
-        <div className="md:col-span-3 col-span-6 p-2 grid gap-2 grid-rows-5 h-[310px] rounded-md overflow-hidden border border-gray-800 cursor-pointer">
-            <div className="row-span-3 flex items-center">
+        <div className="md:col-span-3 col-span-12 p-2 grid gap-2 grid-rows-6 h-[510px] rounded-md overflow-hidden border border-gray-800 cursor-pointer">
+            <div className="row-span-4 flex items-center">
                 {
                     document?.image ? <img src={document?.image} className='w-full h-full object-cover' /> : <img src='/default_img.png' className='w-full h-full object-cover' />
                 }
@@ -163,11 +163,9 @@ function DocumentCard({document}) {
                         </span>
                     ))
                 }
-                <Link to={PATH.DOCUMENT + "/" + document.slug} className='block line-clamp-2 font-semibold hover:text-secondary leading-5'> {document?.name}  </Link>
-            </div>
-
+                <Link to={PATH.DOCUMENT + "/" + document.slug} className='block line-clamp-2 font-semibold hover:text-secondary'> {document?.name}  </Link>
             <Link to={PATH.DOCUMENT + "/" + document.slug} className='w-fit m-auto text-white bg-[#5E54F3] rounded-full px-3 py-1'>Xem ngay</Link>
-
+            </div>
         </div>
     )
 }

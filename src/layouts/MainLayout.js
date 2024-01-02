@@ -14,7 +14,7 @@ function MainLayout({ children }) {
             <section className="h-auto pt-10">
                 <div className="md:grid flex-col flex grid-cols-12 gap-5 md:h-[400px]">
                     <div className='col-span-6'>
-                        <iframe width="100%" height="400" src="https://www.youtube.com/embed/c3suauAz0zQ?si=Xmw-fMfhJXMtghpx&autoplay=0&controls=0"
+                        <iframe width="100%" height="400" src="https://www.youtube.com/embed/ZqvTVRWM5i4?si=nq2dTvzliF0bZYWf&autoplay=1&controls=1&mute=1"
                                 title="YouTube video player" frameBorder="0"
                                 style={{"pointerEvents": "none"}}
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -23,7 +23,7 @@ function MainLayout({ children }) {
 
                     <div className='col-span-6 p-4 md:p-10 flex flex-col gap-2 md:gap-5 pt-2 md:pt-10'>
                         <p className='md:text-6xl text-3xl font-bold'> <span className='text-[#5E54F3]'>EX</span>pertise </p>
-                        <p className='md:text-6xl text-3xl font-bold'> <span className='text-secondary'>EX</span>proration </p>
+                        <p className='md:text-6xl text-3xl font-bold'> <span className='text-secondary'>EX</span>ploration </p>
                         <p className='md:text-6xl text-3xl font-bold'> <span className='text-[#5E54F3]'>EX</span>cellence </p>
                     </div>
                 </div>
