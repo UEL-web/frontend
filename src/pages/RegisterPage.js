@@ -12,6 +12,14 @@ function RegisterPage() {
     const [form] = useForm()
     const [loading, setLoading] = useState(false)
 
+    const handleInput = (e) => {
+        // Loại bỏ tất cả các ký tự không phải số từ giá trị nhập vào
+        const numericValue = e.target.value.replace(/[^0-9]/g, '');
+
+        // Cập nhật giá trị của input
+        e.target.value = numericValue;
+    };
+
 
     const onLogin = (values) => {
         setLoading(true)
@@ -37,6 +45,7 @@ function RegisterPage() {
                       style={{ width: '100%' }}
                       name='form-login'
                       form={form}
+                      requiredMark={false}
                       initialValues={{
                           username: '',
                           password: '',
@@ -47,28 +56,57 @@ function RegisterPage() {
                   >
                       <Form.Item
                           rules={[{ required: true, message: 'Hãy cung cấp username' }]}
-                          label='Username' name='username'
+                          label={
+                              <p style={{ fontWeight: 500}}>Username
+                                  <span style={{ color: 'red' }}>*</span>
+                              </p>
+                          }
+                          name='username'
                           style={{ marginBottom: '15px' }} labelCol={{ span: 24, style: { paddingBottom: 0, fontWeight: 500 } }}
                       >
                           <Input placeholder='username' style={{ border: '2px solid black', borderRadius: '0' }} />
                       </Form.Item>
                       <Form.Item
                           rules={[{ required: true, message: 'Hãy cung cấp mật khẩu' }]}
-                          label='Password' name='password'
+                          label={
+                              <p style={{ fontWeight: 500}}>Password
+                                  <span style={{ color: 'red' }}>*</span>
+                              </p>
+                          }
+                          name='password'
                           labelCol={{ span: 24, style: { paddingBottom: 0, fontWeight: 500 } }}
                       >
                           <Input.Password placeholder='correct horse battery staple' style={{ border: '2px solid black', borderRadius: '0' }} />
                       </Form.Item>
                       <Form.Item
-                          rules={[{ required: true, message: 'Hãy cũng cấp email của bạn' }]}
-                          label='Email' name='email'
+                          rules={[
+                              {
+                                  type: 'email',
+                                  message: 'E-mail không hợp lệ!',
+                              },
+                              {
+                                  required: true,
+                                  message: 'Vui lòng cung cấp E-mail!',
+                              },
+                          ]}
+                          label={
+                              <p style={{ fontWeight: 500 }}>Email
+                                  <span style={{ color: 'red' }}>*</span>
+                              </p>}
+                           name='email'
                           labelCol={{ span: 24, style: { paddingBottom: 0, fontWeight: 500 } }}
                       >
                           <Input placeholder='email@gmail.com' style={{ border: '2px solid black', borderRadius: '0' }} />
                       </Form.Item>
                       <Form.Item
                           rules={[{ required: true, message: 'Hãy cũng cấp số điện thoại của bạn' }]}
-                          label='Số điện thoại' name='phoneNumber'
+                          label={
+                              <p style={{ fontWeight: 500}}>Số điện thoại
+                                  <span style={{ color: 'red' }}>*</span>
+                              </p>
+                          }
+                          name='phoneNumber'
+                          onInput={handleInput}
                           labelCol={{ span: 24, style: { paddingBottom: 0, fontWeight: 500 } }}
                       >
                           <Input placeholder='xxx xxx xxx' style={{ border: '2px solid black', borderRadius: '0' }} />
