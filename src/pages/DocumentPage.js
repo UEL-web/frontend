@@ -131,6 +131,7 @@ function DocumentPage() {
                     {
                         document ? document.map((doc) => (
                             <DocumentCard key={doc.id} document={doc} />
+                            // <></>
                         )) : <Loading />
                     }
                 </div>
@@ -148,14 +149,15 @@ export default DocumentPage;
 
 function DocumentCard({document}) {
     return (
-        <div className="md:col-span-3 col-span-6 p-2 grid gap-2 grid-rows-5 h-[310px] rounded-md overflow-hidden border border-gray-800 cursor-pointer">
+        <div className="md:col-span-3 col-span-6 p-2 grid gap-2 grid-rows-5 h-[320px] rounded-md overflow-hidden border border-gray-800 cursor-pointer w-full">
+
             <div className="row-span-3 flex items-center">
                 {
                     document?.image ? <img src={document?.image} className='w-full h-full object-cover' /> : <img src='/default_img.png' className='w-full h-full object-cover' />
                 }
             </div>
 
-            <div className="row-span-2 gap-2 flex flex-col items-start py-2 transition">
+            <div className="row-span-2 gap-2 flex flex-col items-start transition ">
                 {
                     document?.category?.map((category, index) => (
                         <span key={category.name} className='text-sm bg-[#5E54F3] bg-opacity-20 text-[#5E54F3] rounded-full px-2 py-1'>
@@ -163,7 +165,9 @@ function DocumentCard({document}) {
                         </span>
                     ))
                 }
-                <Link to={PATH.DOCUMENT + "/" + document.slug} className='block line-clamp-2 font-semibold hover:text-secondary leading-5'> {document?.name}  </Link>
+                <div className='overflow-y-auto relative'>
+                    <Link to={PATH.DOCUMENT + "/" + document.slug} className='line-clamp-2 font-semibold hover:text-secondary leading-5'>{document?.name}</Link>
+                </div>
             </div>
 
             <Link to={PATH.DOCUMENT + "/" + document.slug} className='w-fit m-auto text-white bg-[#5E54F3] rounded-full px-3 py-1'>Xem ngay</Link>

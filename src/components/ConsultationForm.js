@@ -31,19 +31,39 @@ function ConsultationForm() {
             form={form}
             layout='vertical'
             style={{ marginTop: '30px' }}
-            requiredMark={false}
+            requiredMark={true}
             onFinish={handleSubmit}
         >
-            <Form.Item required tooltip="This is a required field"
-                       style={{ marginBottom: '0px'}}
+            <Form.Item
+                required tooltip="This is a required field"
+
+                style={{ marginBottom: '0px'}}
                label={
                        <p style={{ fontWeight: 500, color: 'white' }}>Họ và tên</p>
                }
             >
-                <Form.Item name='firstName'  style={{ display: 'inline-block', width: 'calc(50% - 10px)', marginBottom: '20px' }}>
+                <Form.Item
+                    name='firstName'
+                    style={{ display: 'inline-block', width: 'calc(50% - 10px)', marginBottom: '20px' }}
+                    rules={[
+                        {
+                            required: true,
+                            message: 'Please input your username!',
+                        },
+                    ]}
+                >
                     <Input placeholder="Nguyen Van"  style={{ border: '1px solid black', borderRadius: '0', fontSize: '15px', padding: '7px' }} />
                 </Form.Item>
-                <Form.Item name='lastName' style={{ display: 'inline-block', width: 'calc(50% - 10px)', marginLeft: '20px', marginBottom: '20px' }}>
+                <Form.Item
+                    name='lastName'
+                    style={{ display: 'inline-block', width: 'calc(50% - 10px)', marginLeft: '20px', marginBottom: '20px' }}
+                    rules={[
+                        {
+                            required: true,
+                            message: 'Please input your username!',
+                        },
+                    ]}
+                >
                     <Input placeholder="A"  style={{ border: '1px solid black', borderRadius: '0', fontSize: '15px', padding: '7px' }} />
                 </Form.Item>
             </Form.Item>
