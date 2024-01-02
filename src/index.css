@@ -17,5 +17,9 @@
         padding: revert;
     }
 }
+
+.toast-box {
+    z-index:999999999999 !important;
+}
 @tailwind components;
 @tailwind utilities;

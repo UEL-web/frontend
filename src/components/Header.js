@@ -529,7 +529,6 @@ const MenuButtonDiv = styled.div`
   &.active {
     ${tw`
       font-semibold
-      underline
       text-secondary
     `}
   }

@@ -15,6 +15,10 @@ import '../App.css'
 import vi from 'javascript-time-ago/locale/vi'
 import {Link, useNavigate} from "react-router-dom";
 import SuggestBlogs from "../components/SuggestBlogs";
+import { useMediaQuery } from 'react-responsive';
+import BANNER from "../constants/banners";
+import {Link as LinkScroll} from "react-scroll";
+import {MdKeyboardArrowRight} from "react-icons/md";
 
 TimeAgo.addDefaultLocale(vi)
 
@@ -27,6 +31,7 @@ function BlogPage () {
     const [blog, setBlog] = useState(null)
     const [bannerBlog, setBannerBlog] = useState(false)
     const navigate = useNavigate();
+
 
     useEffect(
         () => {
@@ -79,18 +84,20 @@ function BlogPage () {
                   { bannerBlog ? bannerBlog.map((blog, index) => (
                       <>
                           <SwiperSlide className='pb-10'>
-                              <div className='h-[600px] from-slate-100 bg-gray-600 bg-opacity-40 outline w-full relative'>
+                              <div className='from-slate-100 bg-gray-600 bg-opacity-40 outline w-full relative'>
+                                  {/*{*/}
+                                  {/*    blog?.image ?*/}
+                                  {/*        <img src={blog?.image} className='object-cover h-full w-full' alt={blog?.name}/> :*/}
+                                  {/*        <img src='/default_img.png' className='object-cover h-full w-full' alt={blog?.name} />*/}
+                                  {/*}*/}
+                              </div>
+                              <section className="h-auto relative z-0 w-full container max-w-7xl mx-auto m-auto h-auto text-white px-5 md:px-0">
                                   {
                                       blog?.image ?
                                           <img src={blog?.image} className='object-cover h-full w-full' alt={blog?.name}/> :
                                           <img src='/default_img.png' className='object-cover h-full w-full' alt={blog?.name} />
                                   }
-                                  <div className='absolute hover:underline text-white bottom-10 left-10 font-bold text-5xl bg-black bg-opacity-50 p-4'>
-                                      <Link to={`${PATH.BLOG}/${blog?.slug}`}>
-                                          {blog?.title}
-                                      </Link>
-                                  </div>
-                              </div>
+                              </section>
                           </SwiperSlide>
                       </>
                   )) : <Loading />
@@ -98,7 +105,7 @@ function BlogPage () {
               </Swiper>
           </section>
 
-        <div className="container max-w-7xl mx-auto m-auto text-white h-auto py-5">
+        <div className="container max-w-7xl mx-auto m-auto text-white h-auto py-5 px-5 md:px-0">
 
         <section className='h-fit'>
           <p className='text-secondary font-bold text-3xl'>MỚI NHẤT</p>
@@ -133,7 +140,7 @@ function BlogPage () {
                     pagination={true}
                     modules={[Pagination]}
                     breakpoints={{
-                        320: { slidesPerView: 2, spaceBetween: 5 },
+                        320: { slidesPerView: 1 , spaceBetween: 5 },
                         480: { slidesPerView: 2, spaceBetween: 10 },
                         768: { slidesPerView: 3, spaceBetween: 10 },
                         1024: { slidesPerView: 4, spaceBetween: 10 },
@@ -189,7 +196,9 @@ function BlogPage () {
 export default BlogPage
 
 export function NewBlogCard({reverse = false, blog}) {
-    if (reverse) {
+    const isMobile = useMediaQuery({ maxWidth: 400 });
+
+    if (reverse && !isMobile) {
         return (
             <Link to={`${PATH.BLOG}/${blog?.slug}`} className='md:col-span-4 col-span-12 grid grid-rows-2 max-h-[498px] hover:opacity-90 cursor-pointer border border-gray-900'>
                 <div className='pb-4 pt-2 flex md:flex-col flex-col-reverse row-span-1 gap-1 px-3 h-fit'>

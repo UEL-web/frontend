@@ -37,7 +37,7 @@ export default function HomePageNew () {
 
     return (
         <main className='max-w-7xl mx-auto m-auto text-white h-auto mt-5'>
-            <section className='h-auto lg:px-20 lg:pb-20 p-2'>
+            <section className='h-auto lg:pb-20'>
                 <motion.div
                     variants={staggerContainer}
                     initial="hidden"
@@ -294,12 +294,13 @@ export default function HomePageNew () {
                     <div className='lg:px-[200px] px-2 py-10 relative'>
                         <Swiper
                             ref={sliderRef}
-                            slidesPerView={viewPort.width >= 900 ? 4 : 1}
                             spaceBetween={0}
-                            // pagination={{
-                            //     clickable: true,
-                            // }}
-                            // modules={[Pagination]}
+                            breakpoints={{
+                                320: { slidesPerView: 2, spaceBetween: 5 },
+                                480: { slidesPerView: 2, spaceBetween: 0 },
+                                768: { slidesPerView: 3, spaceBetween: 0 },
+                                1024: { slidesPerView: 4, spaceBetween: 5 },
+                            }}
                             className="mySwiper"
                         >
                             {imgTechList.map((tech, index) => (
@@ -314,7 +315,7 @@ export default function HomePageNew () {
                         <motion.button
                             variants={fadeIn('center', 'tween', 0.8, 0.2)}
                             type='button'
-                            className='absolute top-1/2 lg:left-20 left-1 transform -translate-y-1/2 border-none outline-none bg-white rounded-full w-[50px] h-[50px] flex justify-center items-center text-black text-3xl text-[#5E54F3]'
+                            className='absolute top-[90px] lg:left-20 left-1 transform -translate-y-1/2 border-none outline-none bg-white rounded-full w-[50px] h-[50px] flex justify-center items-center text-black text-3xl text-[#5E54F3]'
                             onClick={handlePrev}
                         >
                             <FaAngleLeft
@@ -324,7 +325,7 @@ export default function HomePageNew () {
                         <motion.button
                             variants={fadeIn('center', 'tween', 0.8, 0.2)}
                             type='button'
-                            className='absolute top-1/2 lg:right-20 right-1 transform -translate-y-1/2 border-none outline-none bg-white rounded-full w-[50px] h-[50px] flex justify-center items-center text-black text-3xl'
+                            className='absolute top-[90px] lg:right-20 right-1 transform -translate-y-1/2 border-none outline-none bg-white rounded-full w-[50px] h-[50px] flex justify-center items-center text-black text-3xl'
                             onClick={handleNext}
                         >
                             <FaAngleRight

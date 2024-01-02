@@ -8,7 +8,7 @@ export default function CardTech ({ url, index }) {
             variants={fadeIn('right', 'spring', 0.75 + index * 0.25, 0.75)}
             className='bg-transparent flex justify-center items-center'
         >
-            <div className='p-6 bg-white min-w-[200px] min-h-[100px] flex justify-center items-center rounded-3xl shadow-2xl'>
+            <div className='p-6 bg-white min-h-[100px] flex justify-center items-center rounded-3xl shadow-2xl'>
                 <img
                     src={url}
                     alt=""

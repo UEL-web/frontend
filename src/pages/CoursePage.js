@@ -69,7 +69,7 @@ function CoursePage() {
         <div className="container max-w-7xl mx-auto m-auto h-auto text-white px-5 md:px-0">
             <section className="h-auto relative z-0 w-full">
                 <img src={BANNER.HOME} className='w-full'/>
-                <LinkScroll className='absolute hidden md:block md:bottom-10 md:left-[12.5%] bottom-2 left-[10px] cursor-pointer' to="contact" spy={true} smooth={true} duration={500}>
+                <LinkScroll className='absolute hidden md:block md:bottom-10 md:left-[40px] bottom-2 left-[10px] cursor-pointer' to="contact" spy={true} smooth={true} duration={500}>
                     <div className='text-white cursor-pointer md:py-2 md:px-4 py-1 px-2 flex justify-center items-center rounded bg-gradient-to-r from-[#5E54F3] to-[#F74986]'>
                         <p className='md:text-xl text-xs font-medium'> Đăng kí tư vấn ngay </p>
                         <MdKeyboardArrowRight size={30} />
@@ -106,7 +106,7 @@ function CoursePage() {
                         category ? category.map((cate) => (
                                 <SwiperSlide key={cate.name} className='bg-gradient-to-r from-[#F74986] to-white rounded-full p-[1.5px]'>
                                     <Link to={!getQueryVariable('category') || getQueryVariable('category') !== cate.slug ? '?category=' + cate.slug : PATH.COURSE} className='block bg-black rounded-full'>
-                                        <p className={classnames("truncate py-3 px-4 text-center", {"text-secondary underline": getQueryVariable('category') === cate.slug})}>
+                                        <p className={classnames("truncate py-3 px-4 text-center", {"text-secondary": getQueryVariable('category') === cate.slug})}>
                                             {cate?.name}
                                         </p>
                                     </Link>
