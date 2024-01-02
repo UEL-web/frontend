@@ -90,7 +90,7 @@ export default function HomePageNew () {
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: false, amount: 0.25 }}
-                className='h-auto lg:p-20 p-2 overflow-hidden'
+                className='h-auto p-2 overflow-hidden'
             >
                 <motion.h2
                     variants={textVariant2}
@@ -102,7 +102,7 @@ export default function HomePageNew () {
                 </motion.h2>
 
                 <div className='container my-10 w-full h-auto'>
-                    <div className='grid lg:grid-cols-4 grid-cols-2 lg:gap-10 gap-5 lg:px-20 px-2 '>
+                    <div className='grid lg:grid-cols-4 grid-cols-2 lg:gap-10 gap-5 lg:px-0 px-2 '>
                         {
                             archiData.map((item, index) => (
                                 <CardArchi key={index} index={index} title={item.title} content={item.content} number={item.number} />
@@ -112,7 +112,7 @@ export default function HomePageNew () {
                 </div>
             </motion.section>
 
-            <section className='h-auto lg:px-20 px-2 py-20'>
+            <section className='h-auto lg:px-0 px-2 py-20'>
                 <motion.div
                     variants={staggerContainer}
                     initial="hidden"
@@ -202,7 +202,7 @@ export default function HomePageNew () {
                 </motion.div>
             </section>
 
-            <section className='h-auto lg:px-20 px-2 py-20'>
+            <section className='h-auto lg:px-0 px-2 py-20'>
                 <motion.div
                     variants={staggerContainer}
                     initial="hidden"
@@ -279,7 +279,7 @@ export default function HomePageNew () {
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: false, amount: 0.25 }}
-                className='w-full h-auto lg:px-20 px-2 overflow-hidden'
+                className='w-full h-auto lg:px-0 px-2 overflow-hidden'
             >
                 <motion.div
                     variants={fadeIn('up', 'tween', 0.3, 0.5)}
@@ -336,7 +336,7 @@ export default function HomePageNew () {
                 </motion.div>
             </motion.section>
 
-            <section className='h-auto lg:px-20 px-2 py-20 overflow-hidden'>
+            <section className='h-auto lg:px-0 px-2 py-20 overflow-hidden'>
                 <p className='text-center lg:text-[60px] text-[48px] font-bold mb-5'>
                     Câu hỏi thường gặp
                 </p>
